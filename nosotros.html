@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  
+<meta charset="utf-8">
+<!-- Define el conjunto de caracteres utilizado en la página como UTF-8 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Establece la escala inicial y el ancho de la pantalla para dispositivos móviles -->
+<title>Mi pagina web</title> <!-- Título de la página -->
+<!-- Enlace a la fuente de Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!-- Enlace a la biblioteca de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Configuración de la caché del navegador -->
+<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
+<meta http-equiv="Pragma" content="cache">
+<meta http-equiv="Expires" content="3600">
+<style>
+/*Codigo CSS*/
+body { 
+font-family: 'Roboto', sans-serif; /* Estilo de fuente para el cuerpo del documento */
+margin: 0; /* Elimina el margen exterior del cuerpo */
+padding: 0; /* Elimina el espacio interior del cuerpo */
+background-image: url('none'); /* Imagen de fondo */
+background: linear-gradient(white, white, white); /* Gradiente de colores para el fondo */
+background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+background-attachment: fixed; /* Hace que el fondo se mantenga fijo cuando se desplaza */
+background-position: center; /* Centra la imagen de fondo */
+overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+      
+}
+
+html, body {
+overflow-x: hidden; /* Oculta el desplazamiento horizontal en movil */
+max-width: 100%; /* Ajusta el ancho máximo del cuerpo movil*/
+
+}
+    
+.menu {
+display: flex; 
+justify-content: space-between; 
+background: linear-gradient(to right, #8F00FF, #4B0082); /* Color fondo Menu */ 
+overflow: hidden; 
+position: fixed; 
+width: 100%; /* Asegura que el menú ocupe el ancho completo */
+top: 0; /* Fija el menú en la parte superior */
+z-index: 1000; /* Asegura que el menú esté en la parte superior */
+}
+
+/* Ajusta el espacio entre el menú y el contenido */
+.content {
+padding-top: 80px; /* Ajusta según el alto del menú */
+}
+
+    
+.menu a {
+float: left; /* Alinea los elementos del menú a la izquierda */
+display: block; /* Hace que los elementos del menú sean bloques para ocupar todo el ancho disponible */
+color: white; /* Color del texto del menú */
+text-align: center; /* Alinea el texto del menú al centro */
+padding: 25px 50px; /* Espacio alrededor del texto del menú y centra y mueve el texto */
+text-decoration: none; /* Elimina la decoración de subrayado del texto del menú */
+font-size: 20px; /* Tamaño de la fuente del menú */
+}
+    
+.menu a:hover {
+background-color: none; /* Color de fondo cuando se pasa el cursor sobre los elementos del menú */
+color: #dddddd96; /* Cambia el color del texto cuando se pasa el cursor sobre los elementos del menú */
+}
+    
+.menu .icon {
+display: none; /* Oculta el ícono del menú por defecto */
+
+}
+
+.menu .icon img {
+padding-top: 20px; /* Espacio superior alrededor del icono de hamburguesa */
+}
+
+/* Logo principal */
+.logo {
+position: fixed; /* Permite superponer el logo */
+max-width: 100%; /* Establece el ancho máximo del logo para que se ajuste al contenedor */
+width: 200px !important; /* Ancho específico del logo */
+height: auto !important; /* Ajusta la altura automáticamente para mantener la proporción */
+top: -50px; /* Ajusta la distancia desde la parte superior */
+left: 50%; /* Ajusta la distancia desde la izquierda */
+transform: translateX(-50%); /* Centra el logo horizontalmente */
+z-index: 1002; /* Asegura que el logo esté por encima de los otros elementos */
+}
+
+
+/* Contenedor de texto */
+.contenedor-texto {
+margin-top: 100px; /* Ajusta la distancia del texto al logo */
+}
+
+
+/* Para título debajo de la imagen */
+.image-title.top {
+margin-bottom: 10px;
+margin-top: 0;
+}
+
+.mini-submenu {
+list-style: none;
+padding: 0;
+text-align: center;
+margin: 20px 0;
+}
+
+.mini-submenu li {
+display: inline;
+margin: 0 10px;
+}
+
+
+/* Para boton de busqueda pagina */
+
+.mini-submenu #searchInput {
+padding: 10px 20px; /* Espaciado interno del cuadro de búsqueda */
+border: 1px solid #ccc; /* Borde del cuadro de búsqueda */
+border-radius: 5px; /* Bordes redondeados */
+margin-right: 0px; /* Margen a la derecha del cuadro de búsqueda */
+}
+
+.mini-submenu .search-button {
+background: linear-gradient(to right, #8F00FF, #4B0082); /* Color de fondo inicial del botón */
+color: white; /* Color del texto del botón */
+border: none; /* Sin borde */
+padding: 10px 20px; /* Espaciado interno del botón */
+font-size: 15px; /* Tamaño del texto del botón */
+cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
+border-radius: 5px; /* Bordes redondeados */
+display: inline-flex; /* Utiliza flexbox para alinear el contenido */
+align-items: center; /* Alinea verticalmente el contenido */
+margin-right: 0px; /* Margen a la derecha del botón */
+transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+
+.mini-submenu .search-button i {
+margin-right: 8px; /* Espaciado a la derecha del icono */
+}
+
+.mini-submenu .search-button:hover {
+background-color: darkpurple; /* Color de fondo al pasar el cursor */
+}
+
+
+/* Edita el submenu flotanje superior derecho*/
+.submenu {
+display: none; /* Oculta el submenú por defecto */
+text-align: right; /* Alinea el texto del submenú a la derecha */
+}
+
+.submenu a {
+display: block; /* Muestra los elementos del submenú como bloques */
+text-align: center; /* Alinea el texto del submenú al centro */
+}
+
+.menu.responsive .submenu {
+display: block; /* Asegúrate de que el submenú se muestre */
+position: fixed; /* Hacer que el submenú sea flotante */
+top: 90px; /* Ajusta según sea necesario para colocarlo debajo del ícono del menú */
+right: 0; /* Alinearlo a la derecha */
+background-color: white; /* Color de fondo del submenú */
+width: 200px; /* Ancho del submenú */
+z-index: 1001; /* Para asegurar que se superpone al contenido */
+border-radius: 12px; /* Añade bordes redondeados */
+margin-right: 10px; /*Espacio entre el borde derecho y el menu flotante*/
+}
+
+.menu.responsive .submenu a {
+float: none; /* Cancela la propiedad float */
+display: block; /* Muestra los elementos del submenú como bloques */
+text-align: left; /* Alinea el texto del submenú a la izquierda */
+padding: 15px 30px; /* Espacio alrededor del texto del submenú */
+color: black; /* Color del texto del submenú */
+text-decoration: none; /* Elimina la decoración de subrayado del texto del submenú */
+}
+
+.menu.responsive .submenu a:hover {
+background-color: #dddddd96; /* Color de fondo cuando se pasa el cursor sobre los elementos del submenú */
+color: black; /* Cambia el color del texto cuando se pasa el cursor sobre los elementos del submenú */
+}
+
+.menu.responsive .submenu a i {
+margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.menu .icon {
+display: block;
+position: absolute;
+right: 0;
+top: 0;
+padding: 14px 16px;
+background-color: rgba(121, 10, 136, 0); /* Color del menú con transparencia */
+border: none;
+cursor: pointer;
+font-size: 17px; /* Estilos para el ícono del menú */
+border-radius: 0px; /* Ajusta el valor para redondear más o menos las esquinas */
+z-index: 1002; /* Asegura que el icono del menú esté por encima del menú flotante */
+}
+
+img {
+max-width: 100%;
+height: auto; /* Esto garantiza que las imágenes conserven su proporción de aspecto */
+}
+
+
+/* CSS para slider */
+
+/* Estilos para el contenedor del slider */
+.slider {
+position: relative; /* Establece la posición relativa para posicionar elementos hijos absolutamente */
+width: 100%; /* Ancho del slider al 100% del contenedor */
+height: 300%; /* Altura del slider al 300% del tamaño de la ventana */
+overflow: hidden; /* Oculta cualquier contenido desbordante */
+}
+
+/* Estilos para cada diapositiva del slider */
+.slide {
+display: none; /* Oculta todas las diapositivas inicialmente */
+position: relative; /* Posiciona las diapositivas relativamente dentro del slider */
+}
+
+/* Estilos para las imágenes dentro de las diapositivas */
+.slide img {
+display: block; /* Muestra la imagen como bloque para ocupar todo el ancho */
+width: 100%; /* Ancho al 100% del contenedor */
+height: auto; /* Altura automática para mantener la proporción */
+object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsión */
+}
+
+/* Estilos para el texto superpuesto en las diapositivas */
+.slide-text {
+position: absolute; /* Posiciona el texto absolutamente dentro del slider */
+bottom: 20px; /* Espacio desde la parte inferior */
+left: 0; /* Alinea el texto a la izquierda del contenedor */
+width: 100%; /* Ancho al 100% del contenedor */
+text-align: center; /* Centra el texto horizontalmente */
+color: white; /* Color del texto */
+padding: 10px; /* Espaciado interno */
+background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+font-size: 50px; /* Tamaño de fuente */
+}
+
+.slide-text span {
+font-weight: bold; /* Aplica negrita a las partes específicas del texto */
+}
+
+/* Estilos para los botones de navegación previo y siguiente */
+.prev, .next {
+position: absolute; /* Posiciona los botones absolutamente dentro del slider */
+top: 70%; /* Posición verticalmente centrada */
+transform: translateY(-50%); /* Centra verticalmente los botones */
+width: 30px; /* Ancho de los botones */
+height: 30px; /* Altura de los botones */
+background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+color: white; /* Color del texto */
+font-size: 20px; /* Tamaño de fuente */
+text-align: center; /* Centra el texto horizontalmente */
+line-height: 30px; /* Altura de línea para centrar verticalmente */
+cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+transition: background-color 0.3s; /* Efecto de transición para el color de fondo */
+}
+
+/* Estilos para el botón previo */
+.prev {
+left: 10px; /* Posición a la izquierda */
+}
+
+/* Estilos para el botón siguiente */
+.next {
+right: 10px; /* Posición a la derecha */
+}
+
+/* Cambio de color al pasar sobre los botones */
+.prev:hover, .next:hover {
+background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro */
+}
+
+/* Estilos para el botón */
+.button {
+display: inline-block; /* Bloque en línea */
+padding: 10px 24px; /* Tamaño del botón */
+font-size: 16px; /* Tamaño de fuente */
+background-color: #00ff95; /* Color de fondo */
+color: #fff; /* Color del texto */
+text-decoration: none; /* Sin subrayado */
+border-radius: 8px; /* Bordes redondeados */
+transition: background-color 0.3s; /* Efecto de transición */
+margin-top: 20px; /* Espacio superior */
+}
+
+/* Estilos para el texto del botón */
+.button span {
+font-weight: bold; /* Texto en negrita */
+}
+
+/* Cambio de color al pasar sobre el botón */
+.button:hover {
+background-color: rgba(8, 248, 100, 0.322); /* Fondo semi-transparente */
+}
+
+/* Estilos para los puntos de navegación */
+.dots-container {
+  text-align: center; /* Centra horizontalmente */
+  position: absolute; /* Posiciona absolutamente dentro del slider */
+bottom: 10px; /* Distancia desde la parte inferior */
+  width: 100%; /* Ancho al 100% */
+}
+
+/* Estilos para los puntos de navegación */
+.dot {
+display: inline-block; /* Muestra los puntos en línea */
+width: 11px; /* Ancho */
+height: 11px; /* Altura */
+margin: 0 5px; /* Espaciado entre los puntos */
+background-color: white; /* Color de fondo */
+border-radius: 50%; /* Bordes redondeados */
+cursor: pointer; /* Cursor */
+transition: background-color 0.3s; /* Efecto de transición */
+margin-bottom: -10px;
+}
+
+/* Cambio de color al pasar sobre los puntos */
+.dot.active, .dot:hover {
+background-color: orangered; /* Color al pasar sobre el punto activo */
+}
+
+
+/* Estilos para los dispositivos móviles */
+@media screen and (max-width: 768px) {
+    .slider {
+        max-height: 500px; /* Altura máxima del banner en dispositivos móviles */
+    }
+
+    .slide-text {
+        bottom: 10px; /* Ajustar la posición vertical del texto */
+        font-size: 14px; /* Tamaño del texto más pequeño en dispositivos móviles */
+    }
+
+    .slider-dots {
+        bottom: 1px; /* Ajustar la posición vertical de los dots */
+    }
+
+
+}
+
+
+/* Títulos y subtítulos */
+.container {
+margin-top: 20px; /* Agrega un margen superior de 20px al contenedor */
+}
+
+h1 {
+font-size: 2em; /* Tamaño del título */
+color: white; /* Color del texto */
+background-image: url('titulo.png');
+background-size: cover; /* Asegura que la imagen de fondo cubra todo el área del título */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+background-position: center; /* Centra la imagen de fondo */
+border-radius: 0px; /* Borde redondeado */
+display: inline-block; /* Mostrar como bloque en línea */
+padding: 15px 10px; /* Aumenta el relleno interno del título para mayor altura */
+margin: 10px auto; /* Margen superior e inferior de 20px, y centrar horizontalmente */
+margin-top: 10px; /* Margen superior PC*/
+box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Añade una sombra para un mejor contraste */
+min-height: 110px; /* Establece una altura mínima para asegurar que la imagen de fondo tenga suficiente altura */
+max-width: 100%; /* Limita el ancho máximo al 90% del contenedor */
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del título */
+}
+
+@media (min-width: 769px) {
+    h1 {
+        margin-left: 320px; /* Margen izquierdo para centrar en PC */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.5em; /* Reduce el tamaño del título en dispositivos móviles */
+        padding: 20px 20px; /* Reduce el relleno en dispositivos móviles */
+        margin-left: auto; /* Asegura que no haya margen izquierdo en dispositivos móviles */
+        margin-right: auto; /* Centra horizontalmente en dispositivos móviles */
+        max-width: 100%; /* Asegura que el título ocupe todo el ancho disponible en dispositivos móviles */
+        margin-top: 5px; /* Margen superior movil*/
+    }
+
+
+}
+    
+/* Swiper Container */
+#business-indicators .swiper-container {
+width: 100%; /* Ancho del swiper al 100% del contenedor padre */
+height: 200px; /* Altura del swiper */
+margin: 0; /* Elimina todos los márgenes */
+padding: 0; /* Elimina todo el relleno */
+}
+
+/* Ajustes para el contenedor del swiper */
+#business-indicators .swiper-container {
+position: relative; /* Mantenemos la posición relativa */
+overflow: visible; /* Permitimos que los dots se salgan del contenedor */
+}
+
+/* Centra el título del slider */
+#business-indicators h2 {
+text-align: center; /* Centra el texto del título horizontalmente */
+font-size: 48px; /* Tamaño de la fuente del título */
+margin-top: 30px; /* Margen superior para separar el título del contenido */
+color: #8F00FF; /* Color del texto del título */
+}
+
+/* para el contenedor de los indicadores */
+
+#business-indicators  {
+display: flex; /* Utiliza flexbox para el diseño de los elementos internos */
+flex-direction: column; /* Alinea los elementos internos en una columna */
+align-items: center; /* Centra horizontalmente los elementos internos */
+text-align: center; /* Centra el texto horizontalmente */
+padding: 20px; /* Añade 20px de espacio interno (padding) alrededor del contenido */
+background: #fff; /* Establece el fondo del elemento en blanco */
+border: 1px solid #ddd; /* Añade un borde gris claro alrededor del elemento */
+border-radius: 10px; /* Redondea las esquinas del borde */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra alrededor del elemento para darle profundidad */
+}
+
+
+/* Contenido */
+
+/* Estilos para los contenedores de dos columnas */
+.two-column-container {
+display: flex; /* Utiliza flexbox para el diseño de dos columnas */
+flex-direction: column; /* Dirección de las columnas en dispositivos móviles */
+align-items: center; /* Centra horizontalmente el contenido */
+}
+
+/* Estilos para cada columna */
+.column {
+width: 100%; /* Cada columna ocupa todo el ancho disponible en dispositivos móviles */
+padding: 20px; /* Espaciado interno */
+display: flex; /* Flexbox para alinear el contenido */
+flex-direction: column; /* Dirección de columna para el contenido interno */
+align-items: center; /* Centra horizontalmente el contenido interno */
+position: relative; /* Posicionamiento relativo para que el texto se superponga correctamente */
+}
+
+/* Estilos para las imágenes */
+.image-container {
+position: relative; /* Contenedor relativo para el texto superpuesto */
+width: 100%; /* Ajusta el ancho del contenedor al 100% */
+display: flex;
+justify-content: center;
+}
+
+.image-container img {
+width: 100%; /* Ajusta el ancho de la imagen al 100% del contenedor */
+height: auto; /* Permite que la altura se ajuste automáticamente */
+max-width: 100%; /* Limita el ancho máximo de la imagen al 100% del contenedor */
+margin-bottom: 10px; /* Espacio inferior de la imagen */
+}
+
+/* Estilos para la superposición de texto sobre la imagen */
+.text-overlay {
+position: absolute; /* Posiciona el texto de manera absoluta dentro del contenedor de la imagen */
+bottom: 5%; /* Alinea el texto a un 5% del borde inferior del contenedor */
+left: 5%; /* Alinea el texto a un 5% del borde izquierdo del contenedor */
+width: 85%; /* Ajusta el ancho del texto al 90% del contenedor */
+background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+padding: 10px; /* Espaciado interno del texto */
+color: white; /* Color del texto */
+font-size: 1.2em; /* Tamaño del texto */
+text-align: center; /* Centra el texto */
+z-index: 1; /* Asegura que el texto esté por encima de la imagen */
+}
+
+
+/* Estilos para los títulos */
+.column > .titulo {
+font-weight: bold; /* Aplica negrita al título */
+font-size: 24px; /* Tamaño del texto del título */
+color: #8F00FF; /* Color del texto del título */
+margin-bottom: 20px; /* Espacio inferior del título */
+text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Estilos para los párrafos de texto */
+.column > p {
+font-size: 20px; /* Tamaño del texto */
+color: black; /* Color del texto */
+text-align: justify; /* Justifica el texto */
+margin-top: 50px; /* Margen superior del párrafo */
+margin-bottom: 20px; /* Espaciado inferior del párrafo */
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 768px) {
+    .two-column-container {
+        flex-direction: row; /* Flex direction row para vista en PC */
+    }
+
+    .column {
+        width: 50%; /* Cada columna ocupa el 50% del ancho disponible */
+    }
+
+    .column img {
+        max-width: 80%; /* Limita el ancho máximo de la imagen al 30% del contenedor */
+        margin: 0 auto; /* Centra las imágenes horizontalmente */
+    }
+
+    .column > p {
+        margin-right: 20px; /* Añade un margen a la derecha del texto */
+        margin-left: 20px; /* Añade un margen a la izquierda del texto */
+    }
+}
+
+
+
+table {
+width: 100%; /* Establece el ancho de la tabla al 100% del contenedor padre */
+border-collapse: collapse; /* Fusiona los bordes de la tabla */
+}
+    
+table th, table td {
+padding: 8px; /* Espacio alrededor del contenido de las celdas de la tabla */
+text-align: center; /* Alinea el texto dentro de las celdas de la tabla al centro */
+border-bottom: 1px solid #ddd; /* Borde inferior de las celdas de la tabla */
+}
+    
+table th {
+background-color: #000000; /* Color de fondo de las celdas de encabezado de la tabla */
+color: white; /* Color del texto de las celdas de encabezado de la tabla */
+
+}
+  
+.whatsapp-icon {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 55px;
+height: auto;
+z-index: 999;
+}
+.whatsapp-icon img {
+width: 100%; /* Asegúrate de que el tamaño del icono sea del 100% del contenedor */
+height: auto; /* Mantén la proporción del icono */
+}
+
+
+#footer {
+display: flex; /* Establece el contenedor como un flexbox */
+justify-content: space-between; /* Distribuye el espacio entre los elementos del contenedor */
+align-items: flex-start; /* Alinea los elementos al inicio del eje transversal */
+flex-wrap: wrap; /* Permite que los elementos se ajusten al ancho del contenedor */
+background: linear-gradient(to right, #8F00FF, #4B0082);  /* Establece un fondo degradado */
+color: #fff; /* Color de texto blanco */
+margin-top: 50px;
+}
+
+.footer-column {
+flex: 1; /* Hace que las columnas del footer tengan el mismo ancho */
+text-align: center; /* Alinea el texto al centro dentro de las columnas */
+}
+
+.footer-column h4 {
+font-size: 18px; /* Tamaño de fuente para los títulos */
+margin-top: 20px; /* Margen superior para separar los títulos del contenido */
+}
+
+.footer-column ul {
+list-style: none; /* Elimina los estilos de lista predeterminados */
+padding: 0; /* Elimina el relleno de las listas */
+margin-top: 50px; /* Margen superior para separar las listas del contenido superior */
+}
+
+.footer-column ul li {
+display: inline-block; /* Hace que los elementos de la lista estén en línea */
+margin-bottom: 10px; /* Espacio entre los elementos de la lista */
+margin-right: 10px; /* Espacio a la derecha de los elementos de la lista */
+}
+
+.enlaces li {
+margin-bottom: 5px; /* Espacio entre los elementos de la lista de enlaces */
+display: inline-block; /* Hace que los elementos de la lista de enlaces estén en línea */
+}
+
+.enlaces li a {
+color: #fff; /* Color del texto de los enlaces */
+}
+
+/* Ajustes para los iconos de redes sociales */
+.footer-column .redes-sociales li {
+display: inline-block; /* Hace que los elementos de la lista de redes sociales estén en línea */
+margin-right: 10px; /* Espacio a la derecha de los elementos de la lista de redes sociales */
+}
+
+.footer-column .redes-sociales a {
+display: block; /* Hace que el área de clic sea todo el icono */
+}
+
+.footer-column .redes-sociales img {
+width: 40px; /* Tamaño deseado de las imágenes de redes sociales */
+margin-top: -20px;
+}
+
+.contact-info a {
+color: #fff; /* Cambia el color del texto de los enlaces */
+text-decoration: none; /* Elimina el subrayado de los enlaces si lo deseas */
+}
+
+
+.popup {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 999;
+}
+
+.popup-contenido {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+z-index: 1000;
+max-width: 90%;
+max-height: 80%; /* Limitamos la altura máxima del pop-up */
+overflow-y: auto;
+margin: 15% auto; /* Aumentamos un poco el margen */
+}
+
+
+.popup-contenido p {
+margin: 10px 0;
+color: black;
+}
+
+.titulo-popup {
+font-weight: bold;
+text-align: center; /* Centramos el título */
+margin-bottom: 10px; /* Añadimos espacio debajo del título */
+word-break: break-word; /* Permitimos que las palabras se dividan si son demasiado largas */
+}
+
+
+
+  </style>
+</head>
+<body>
+  <!-- Menú de navegación -->
+<div class="menu" id="myMenu" style="width: 100%; height: 80px;">
+  <a href="home.html">Inicio</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+    <img src="menu.png" alt="menu" width="20"> <!--Tamaño menu hamburgesa-->
+  </a>
+  <div class="submenu">
+    <a href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
+    <a href="nosotros.html"><i class="fas fa-building"></i> Nuestra Empresa</a>
+    <a href="contact.html"><i class="fas fa-mobile device"></i> Contactenos</a>
+  </div>
+    <!--logo-->
+    <a href="home.html">
+   <img src="logo.gif" alt="Logo de tu página" class="logo" style="width: 12%; height: 16%;"></a>
+  </div>
+    <!-- Slider -->
+<div class="slider">
+  <div class="slide">
+    <img src="banner1.png" alt="Banner 1" >
+     <div class="slide-text">
+      <span>!Contamos con todo tipo de documentos</span>,pregunta ya por nuestros tramites¡
+      <br>
+      <a href="https://acortar.link/ILH7lO" target="_blank" class="button"><span>¡Escríbenos al Whatsapp!</span></a>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="banner2.png" alt="Banner 2">
+    <div class="slide-text">
+      <span>!Todo tipo de tramites inmobiliarios</span>,laborales y otros documentos al instante¡
+      <br>
+      <a href="https://acortar.link/ILH7lO" target="_blank" class="button"><span>¡Escríbenos al Whatsapp!</span></a>
+    </div>
+  </div>
+ <!-- Botones de navegación -->
+ <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+ <a class="next" onclick="plusSlides(1)">&#10095;</a>
+ 
+ <!-- Botones circulares dentro del slider -->
+ <div class="dots-container">
+   <span class="dot" onclick="currentSlide(1)"></span>
+   <span class="dot" onclick="currentSlide(2)"></span>
+ </div>
+</div>
+   <!-- Boton Whatsapp POP UP -->
+  <a href="https://acortar.link/ILH7lO" target="_blank" class="whatsapp-icon">
+    <img src="whatsapp_icon.png" alt="WhatsApp">
+  </div>
+</div>
+  </a>
+<!-- Título y contenido -->
+<div class="contenedor-texto">
+  <h1>Conoce Nuestra Empresa y  Nuestro Alzance</h1>
+</div>
+<!-- Submenú -->
+<ul class="mini-submenu" style="text-align: right;">
+  <input type="text" id="searchInput" placeholder="Buscar...">
+  <button class="search-button" onclick="searchFunction()"><i class="fas fa-search"></i> Buscar</button>
+</li>
+</ul>
+
+
+<!-- Contenedor -->
+<div id="nosotros" class="contenido">
+  <div class="two-column-container">
+    <div class="column">
+      <p class="titulo"><i class="fas fa-city"></i> NUESTRA EMPRESA</p>
+      <p>Somos una agencia especializada en la gestión de documentos legales que te permitirán
+         acceder a oportunidades como el arriendo de viviendas y la obtención de préstamos bancarios
+          y créditos con total confianza. Ofrecemos una variedad de paquetes para cubrir tus necesidades.
+           En esta sección, compartimos nuestra trayectoria, nuestra dedicación a proporcionar soluciones
+            legales confiables y la variedad de servicios que ofrecemos para facilitar tus trámites.
+             Desde la gestión de documentos hasta el asesoramiento personalizado, estamos aquí para 
+             ayudarte a alcanzar tus objetivos financieros y legales con tranquilidad y eficacia.</p>
+    </div>
+    <div class="column">
+      <div class="image-container">
+        <img src="contenido1.png" alt="Logo de Servicios">
+        <div class="text-overlay">Nosotros</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="nosotros2" class="contenido">
+  <div class="two-column-container">
+    <div class="column">
+      <img src="contenido2.png" alt="imagen 2">
+      <div class="text-overlay">Nuestra Misión</div>
+    </div>
+    <div class="column">
+      <p class="titulo"><i class="fas fa-bullseye"></i> MISIÓN</p>
+      <p>Proporcionamos servicios de gestión de documentos legales confiables
+         y eficientes para facilitar el acceso a oportunidades financieras y legales con total confianza.</p>
+    </div>
+  </div>
+</div>
+
+<div id="nosotros3" class="contenido">
+  <div class="two-column-container">
+    <div class="column">
+      <p class="titulo"><i class="fas fa-eye"></i>VISIÓN</p>
+      <p>Nos esforzamos por ser líderes en la gestión de documentos legales,
+         ofreciendo servicios de alta calidad que superen las expectativas del cliente
+          y se adapten a las necesidades del mercado en constante cambio.</p>
+    </div>
+    <div class="column">
+      <div class="image-container">
+        <img src="contenido3.png" alt="imagen 3">
+        <div class="text-overlay">Nuestra Visión</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+  
+   <!-- Indicadores Empresariales -->
+<div id="business-indicators">
+  <h2>Indicadores Empresariales</h2>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide business-indicator">
+        <h3>2 Sedes</h3>
+        <p>Nuestra empresa cuenta con 2 sedes estratégicamente ubicadas.</p>
+      </div>
+      <div class="swiper-slide business-indicator">
+        <h3>Más de 20 Empleados</h3>
+        <p>Contamos con un equipo de más de 20 empleados altamente calificados.</p>
+      </div>
+      <div class="swiper-slide business-indicator">
+        <h3>8 Años en el Mercado</h3>
+        <p>Llevamos más de 8 años ofreciendo nuestros servicios en el mercado.</p>
+      </div>
+      <div class="swiper-slide business-indicator">
+        <h3>Más de 10 Clientes</h3>
+        <p>Tenemos una amplia base de clientes, superando los 10 clientes legales.</p>
+      </div>
+      <!-- Puedes agregar más indicadores empresariales según sea necesario -->
+    </div>
+
+    <!-- Agrega Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="footer-column">
+        <h4>Redes Sociales</h4>
+        <ul class="redes-sociales">
+          <li><a href="https://www.facebook.com/profile.php?id=100085465921547" target="_blank"><img src="facebook.png" alt="Facebook"></a></li>
+          <li><a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a></li>
+
+        </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Contáctanos</h4>
+      <ul class="contact-info">
+          <li><i class="fab fa-phone"></i> <a href="tel:+123456789">PBX: 604 XX24606</a></li>
+          <li><i class="far fa-envelope"></i> <a href="mailto:crisniozmc@gmail.com" target="_blank">crisniozmc@gmail.com</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps?q=Sede+Prado+Carrera+50+%23+60-69" target="_blank">Sede Prado: Carrera 50 # 60 – 69</a></li>
+          <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps?q=Sede+Poblado+Calle+14+%23+40-40+Medellín+Antioquia"target="_blank">Sede Poblado: Calle 14 # 40 - 40 Medellín Antioquia</a></li>
+      </ul>
+  </div>
+    </div>
+    <div class="footer-column">
+      <h4>Enlaces</h4>
+      <ul class="enlaces">
+        <li><a href="#" class="mostrar-politica"><i class="fas fa-shield-alt"></i> Política de privacidad</a></li>
+        <li><a href="#" class="mostrar-terminos"><i class="fas fa-file-contract"></i> Términos de uso</a></li>
+      </ul>
+  </div>  
+
+
+  <div class="popup" id="popup-politica">
+    <div class="popup-contenido">
+        <!-- Contenido de la política de privacidad aquí -->
+        <p class="titulo-popup">Política de privacidad:</p>
+        <p>Nuestra política de privacidad describe cómo en Agencia Trámites SAS Colombia recopilamos, 
+          utilizamos y protegemos la información personal de los usuarios de nuestro sitio web. 
+          Con esta política, garantizamos a nuestros usuarios que su información recopilada
+          se utiliza de manera confidencial. En caso de compartir esta información con terceros
+          y proveedores externos, tomamos las medidas de seguridad necesarias para protegerla adecuadamente.</p>
+    </div>
+</div>
+
+<div class="popup" id="popup-terminos">
+    <div class="popup-contenido">
+        <!-- Contenido de los términos de uso aquí -->
+        <p class="titulo-popup">Términos de uso:</p>
+        <p> Los términos y condiciones de uso de Agencia de tramites SAS Colombia, 
+          establecen las reglas y condiciones bajo las cuales puedes acceder y utilizar nuestro sitio web.
+           Al hacer uso de nuestros servicios, aceptas cumplir con estos términos, 
+           que definen tus derechos y responsabilidades como usuario.
+            Además, estos términos incluyen información sobre nuestras limitaciones de responsabilidad y 
+            otros aspectos relevantes relacionados con el uso de nuestro sitio web y servicios.</p>
+    </div>
+</div>
+</footer>
+
+
+
+  </script>
+  <script>
+  // Función para abrir/cerrar el menú hamburguesa
+  function myFunction() {
+    var x = document.getElementById("myMenu");
+    if (x.className === "menu") {
+      x.className += " responsive";
+    } else {
+      x.className = "menu";
+    }
+  }
+</script>
+  <script> 
+   // Función para que el menu se cierra cuando doy clic en pagina
+    document.addEventListener('click', function(e) {
+      if (!document.getElementById('myMenu').contains(e.target)) {
+        var x = document.getElementById('myMenu');
+        if (x.className === 'menu responsive') {
+          x.className = 'menu'; /* El evento click se añade al documento con este scrip*/
+        }
+      }
+    });
+  </script>
+<script> {
+let slideIndex = 0; 
+showSlides(slideIndex);
+
+function showSlides(n) {
+  const slides = document.getElementsByClassName('slide');
+  const dots = document.getElementsByClassName('dot');
+  
+  if (n >= slides.length) { slideIndex = 0; }
+  if (n < 0) { slideIndex = slides.length - 1; }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none'; /* Oculta todas las diapositivas */
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(' active', '');
+  }
+
+  slides[slideIndex].style.display = 'block'; /* Muestra la diapositiva actual */
+  dots[slideIndex].className += ' active';
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n); /* Cambia la diapositiva al avanzar o retroceder */
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+// Inicializar la primera diapositiva
+showSlides(slideIndex);
+}
+</script>
+<script>
+// Función para cerrar el menú al hacer clic fuera de él
+document.addEventListener('click', function(e) {
+  if (!document.getElementById('myMenu').contains(e.target)) {
+    var x = document.getElementById('myMenu');
+    if (x.className === 'menu responsive') {
+      x.className = 'menu';
+    }
+  }
+});
+
+// Función para realizar la búsqueda en la página
+function searchFunction() {
+  var input, filter, elements, txtValue;
+  input = document.getElementById("searchInput");
+  filter = input.value.trim().toUpperCase();
+
+  if (filter === "") {
+    alert("Por favor, ingrese un término de búsqueda.");
+    return false;
+  }
+
+  elements = document.body.getElementsByTagName("*");
+
+  for (var i = 0; i < elements.length; i++) {
+    txtValue = elements[i].textContent || elements[i].innerText;
+
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      // Resalta el texto cambiando el color de la letra
+      elements[i].style.color = "yellow";
+      // Elimina el resaltado después de 3 segundos
+      setTimeout(function(el) {
+        return function() {
+          el.style.color = "";
+        }
+      }(elements[i]), 3000);
+    }
+  }
+
+  return false;
+}
+</script>
+
+<script>
+//Funcion para pop UP de enlaces finales
+document.addEventListener('DOMContentLoaded', function() {
+    const mostrarPolitica = document.querySelector('.mostrar-politica');
+    const mostrarTerminos = document.querySelector('.mostrar-terminos');
+    const popupPolitica = document.getElementById('popup-politica');
+    const popupTerminos = document.getElementById('popup-terminos');
+
+    mostrarPolitica.addEventListener('click', function(event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+        popupPolitica.style.display = 'block';
+    });
+
+    mostrarTerminos.addEventListener('click', function(event) {
+        event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+        popupTerminos.style.display = 'block';
+    });
+
+    // Cerrar el popup haciendo clic fuera de él
+    window.addEventListener('click', function(event) {
+        if (event.target == popupPolitica) {
+            popupPolitica.style.display = 'none';
+        }
+        if (event.target == popupTerminos) {
+            popupTerminos.style.display = 'none';
+        }
+    });
+});
+</script>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+var swiper = new Swiper('.swiper-container', {
+  slidesPerView: 3,  // Número de diapositivas que se muestran a la vez
+  spaceBetween: 30,  // Espacio entre las diapositivas
+  loop: true,        // Hace que el deslizador sea continuo
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true, // Permite hacer clic en las balas de paginación
+  },
+  navigation: {
+    nextEl: '.swiper-button-next', // Selector del botón "Siguiente"
+    prevEl: '.swiper-button-prev', // Selector del botón "Anterior"
+  },
+});
+});
+  </script>
+</body>
+</html>
