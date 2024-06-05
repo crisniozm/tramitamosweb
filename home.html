@@ -22,7 +22,7 @@ font-family: 'Roboto', sans-serif; /* Estilo de fuente para el cuerpo del docume
 margin: 0; /* Elimina el margen exterior del cuerpo */
 padding: 0; /* Elimina el espacio interior del cuerpo */
 background-image: url('none'); /* Imagen de fondo */
-background: linear-gradient(white, white, white); /* Gradiente de colores para el fondo */
+background: linear-gradient(to right , white, white); /* Gradiente de colores para el fondo */
 background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
 background-repeat: no-repeat; /* Evita que la imagen se repita */
 background-attachment: fixed; /* Hace que el fondo se mantenga fijo cuando se desplaza */
@@ -40,7 +40,7 @@ max-width: 100%; /* Ajusta el ancho máximo del cuerpo movil*/
 .menu {
 display: flex; 
 justify-content: space-between; 
-background: linear-gradient(to right, #8F00FF, #4B0082); /* Color fondo Menu */ 
+background: linear-gradient(to right, black, black); /* Color fondo Menu */ 
 overflow: hidden; 
 position: fixed; 
 width: 100%; /* Asegura que el menú ocupe el ancho completo */
@@ -126,7 +126,7 @@ margin-right: 0px; /* Margen a la derecha del cuadro de búsqueda */
 }
 
 .mini-submenu .search-button {
-background: linear-gradient(to right, #8F00FF, #4B0082); /* Color de fondo inicial del botón */
+background: linear-gradient(to right,rgb(14, 0, 0), rgb(10, 0, 0)); /* Color de fondo inicial del botón */
 color: white; /* Color del texto del botón */
 border: none; /* Sin borde */
 padding: 10px 20px; /* Espaciado interno del botón */
@@ -327,7 +327,7 @@ margin-bottom: -10px;
 
 /* Cambio de color al pasar sobre los puntos */
 .dot.active, .dot:hover {
-background-color: orangered; /* Color al pasar sobre el punto activo */
+background-color: red; /* Color al pasar sobre el punto activo */
 }
 
 
@@ -357,8 +357,8 @@ margin-top: 20px; /* Agrega un margen superior de 20px al contenedor */
 
 h1 {
 font-size: 2em; /* Tamaño del título */
-color: white; /* Color del texto */
-background-image: url('titulo.png');
+color: black; /* Color del texto */
+background-image: url('logo2.png');
 background-size: cover; /* Asegura que la imagen de fondo cubra todo el área del título */
 background-repeat: no-repeat; /* Evita que la imagen se repita */
 background-position: center; /* Centra la imagen de fondo */
@@ -366,8 +366,8 @@ border-radius: 0px; /* Borde redondeado */
 display: inline-block; /* Mostrar como bloque en línea */
 padding: 15px 10px; /* Aumenta el relleno interno del título para mayor altura */
 margin: 10px auto; /* Margen superior e inferior de 20px, y centrar horizontalmente */
-margin-top: 10px; /* Margen superior PC*/
-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Añade una sombra para un mejor contraste */
+margin-top: -90px; /* Margen superior PC*/
+box-shadow: 0px 4px 6px white; /* Añade una sombra para un mejor contraste */
 min-height: 110px; /* Establece una altura mínima para asegurar que la imagen de fondo tenga suficiente altura */
 max-width: 100%; /* Limita el ancho máximo al 90% del contenedor */
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del título */
@@ -386,7 +386,7 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del t
         margin-left: auto; /* Asegura que no haya margen izquierdo en dispositivos móviles */
         margin-right: auto; /* Centra horizontalmente en dispositivos móviles */
         max-width: 100%; /* Asegura que el título ocupe todo el ancho disponible en dispositivos móviles */
-        margin-top: 5px; /* Margen superior movil*/
+        margin-top: -50px; /* Margen superior movil*/
     }
 }
 
@@ -428,7 +428,7 @@ max-height: 100%; /* Hace que la altura de la imagen no exceda el 100% del conte
 position: absolute; /* Posiciona las flechas de forma absoluta dentro del contenedor del Swiper */
 bottom: 5%; /* Coloca las flechas en el 5% de la parte inferior del contenedor */
 z-index: 20; /* Ajusta el índice z para asegurar que estén por encima del contenido */
-color: #6a1b9a; /* Color de las flechas */
+color: red; /* Color de las flechas */
 font-size: 24px; /* Tamaño de la fuente de las flechas */
 }
 
@@ -477,7 +477,7 @@ position: absolute; /* Posiciona el botón de forma absoluta dentro del contened
 bottom: 10%; /* Ajusta este valor para mover el botón hacia arriba o hacia abajo */
 left: 50%; /* Centra el botón horizontalmente */
 transform: translateX(-50%); /* Ajusta la posición del botón para centrarlo */
-background-color: #00ff95; /* Color de fondo del botón */
+background-color: red; /* Color de fondo del botón */
 color: white; /* Color del texto del botón */
 padding: 10px 20px; /* Espaciado interno del botón */
 text-decoration: none; /* Sin subrayado */
@@ -488,7 +488,7 @@ transition: background-color 0.3s; /* Efecto de transición */
 
 /* Efecto hover para el botón */
 .image-container .button:hover {
-background-color: rgba(8, 248, 100, 0.8); /* Fondo más oscuro al pasar sobre el botón */
+background-color: grey; /* Fondo más oscuro al pasar sobre el botón */
 }
 
 /* Estilos para el texto sobre las imágenes */
@@ -542,7 +542,7 @@ display: flex; /* Establece el contenedor como un flexbox */
 justify-content: space-between; /* Distribuye el espacio entre los elementos del contenedor */
 align-items: flex-start; /* Alinea los elementos al inicio del eje transversal */
 flex-wrap: wrap; /* Permite que los elementos se ajusten al ancho del contenedor */
-background: linear-gradient(to right, #8F00FF, #4B0082);  /* Establece un fondo degradado */
+background: linear-gradient(to right, black, black);  /* Establece un fondo degradado */
 color: #fff; /* Color de texto blanco */
 margin-top: 50px;
 }
@@ -642,7 +642,7 @@ word-break: break-word; /* Permitimos que las palabras se dividan si son demasia
 
   </style>
 </head>
-<!-- Google tag (gtag.js) -->
+<!-- Google ads publicidad (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16589430306"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -651,7 +651,7 @@ word-break: break-word; /* Permitimos que las palabras se dividan si son demasia
 
   gtag('config', 'AW-16589430306');
 </script>
-<!-- Google tag (gtag.js) -->
+<!-- Google tag analitiycs(gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-L99BV8VW1R"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -716,7 +716,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </a>
 <!-- Título y contenido -->
 <div class="contenedor-texto">
-  <h1>Agencia de Tramites SAS Colombia</h1>
+  <h1>¡Gestiona tus trámites fácilmente con Agencia de Trámites Colombia!</h1>
 </div>
 <!-- Submenú -->
 <ul class="mini-submenu" style="text-align: right;">
@@ -1002,6 +1002,7 @@ var swiper = new Swiper('.swiper-container', {
 });
 });
   </script>
+  <!--Scrip para Metricool-->
   <script>function loadScript(a){var 
 b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.
 src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function()

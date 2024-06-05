@@ -40,7 +40,7 @@ max-width: 100%; /* Ajusta el ancho máximo del cuerpo movil*/
 .menu {
 display: flex; 
 justify-content: space-between; 
-background: linear-gradient(to right, #8F00FF, #4B0082); /* Color fondo Menu */ 
+background: linear-gradient(to right, black, black); /* Color fondo Menu */ 
 overflow: hidden; 
 position: fixed; 
 width: 100%; /* Asegura que el menú ocupe el ancho completo */
@@ -126,7 +126,7 @@ margin-right: 0px; /* Margen a la derecha del cuadro de búsqueda */
 }
 
 .mini-submenu .search-button {
-background: linear-gradient(to right, #8F00FF, #4B0082); /* Color de fondo inicial del botón */
+background: linear-gradient(to right,rgb(14, 0, 0), rgb(10, 0, 0)); /* Color de fondo inicial del botón */
 color: white; /* Color del texto del botón */
 border: none; /* Sin borde */
 padding: 10px 20px; /* Espaciado interno del botón */
@@ -327,7 +327,7 @@ margin-bottom: -10px;
 
 /* Cambio de color al pasar sobre los puntos */
 .dot.active, .dot:hover {
-background-color: orangered; /* Color al pasar sobre el punto activo */
+background-color: red; /* Color al pasar sobre el punto activo */
 }
 
 
@@ -357,8 +357,8 @@ margin-top: 20px; /* Agrega un margen superior de 20px al contenedor */
 
 h1 {
 font-size: 2em; /* Tamaño del título */
-color: white; /* Color del texto */
-background-image: url('titulo.png');
+color: black; /* Color del texto */
+background-image: url('logo2.png');
 background-size: cover; /* Asegura que la imagen de fondo cubra todo el área del título */
 background-repeat: no-repeat; /* Evita que la imagen se repita */
 background-position: center; /* Centra la imagen de fondo */
@@ -366,8 +366,8 @@ border-radius: 0px; /* Borde redondeado */
 display: inline-block; /* Mostrar como bloque en línea */
 padding: 15px 10px; /* Aumenta el relleno interno del título para mayor altura */
 margin: 10px auto; /* Margen superior e inferior de 20px, y centrar horizontalmente */
-margin-top: 10px; /* Margen superior PC*/
-box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Añade una sombra para un mejor contraste */
+margin-top: -90px; /* Margen superior PC*/
+box-shadow: 0px 4px 6px white; /* Añade una sombra para un mejor contraste */
 min-height: 110px; /* Establece una altura mínima para asegurar que la imagen de fondo tenga suficiente altura */
 max-width: 100%; /* Limita el ancho máximo al 90% del contenedor */
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del título */
@@ -386,10 +386,8 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del t
         margin-left: auto; /* Asegura que no haya margen izquierdo en dispositivos móviles */
         margin-right: auto; /* Centra horizontalmente en dispositivos móviles */
         max-width: 100%; /* Asegura que el título ocupe todo el ancho disponible en dispositivos móviles */
-        margin-top: 5px; /* Margen superior movil*/
+        margin-top: -50px; /* Margen superior movil*/
     }
-
-
 }
     
 /* Swiper Container */
@@ -411,7 +409,7 @@ overflow: visible; /* Permitimos que los dots se salgan del contenedor */
 text-align: center; /* Centra el texto del título horizontalmente */
 font-size: 48px; /* Tamaño de la fuente del título */
 margin-top: 30px; /* Margen superior para separar el título del contenido */
-color: #8F00FF; /* Color del texto del título */
+color: black; /* Color del texto del título */
 }
 
 /* para el contenedor de los indicadores */
@@ -482,7 +480,7 @@ z-index: 1; /* Asegura que el texto esté por encima de la imagen */
 .column > .titulo {
 font-weight: bold; /* Aplica negrita al título */
 font-size: 24px; /* Tamaño del texto del título */
-color: #8F00FF; /* Color del texto del título */
+color: black; /* Color del texto del título */
 margin-bottom: 20px; /* Espacio inferior del título */
 text-align: center; /* Centra el texto horizontalmente */
 }
@@ -555,7 +553,7 @@ display: flex; /* Establece el contenedor como un flexbox */
 justify-content: space-between; /* Distribuye el espacio entre los elementos del contenedor */
 align-items: flex-start; /* Alinea los elementos al inicio del eje transversal */
 flex-wrap: wrap; /* Permite que los elementos se ajusten al ancho del contenedor */
-background: linear-gradient(to right, #8F00FF, #4B0082);  /* Establece un fondo degradado */
+background: linear-gradient(to right, black, black);  /* Establece un fondo degradado */
 color: #fff; /* Color de texto blanco */
 margin-top: 50px;
 }
