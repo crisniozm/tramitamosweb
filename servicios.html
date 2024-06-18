@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <!-- Define el conjunto de caracteres utilizado en la página como UTF-8 -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Establece la escala inicial y el ancho de la pantalla para dispositivos móviles -->
-<title>Mi pagina web</title> <!-- Título de la página -->
+<title>Tramitamos SAS Colombia</title> <!-- Título de la página -->
 <!-- Enlace a la fuente de Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 <!-- Enlace a la biblioteca de Font Awesome -->
@@ -15,6 +15,8 @@
 <meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
 <meta http-equiv="Pragma" content="cache">
 <meta http-equiv="Expires" content="3600">
+<!-- Favicon -->
+<link href="favicon.png" rel="icon">
 <style>
 /*Codigo CSS*/
 body { 
@@ -25,7 +27,7 @@ background-image: url('none'); /* Imagen de fondo */
 background: linear-gradient(white, white, white); /* Gradiente de colores para el fondo */
 background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
 background-repeat: no-repeat; /* Evita que la imagen se repita */
-background-attachment: fixed; /* Hace que el fondo se mantenga fijo cuando se desplaza */
+background-attachment: fixed; /*con fixed Hace que el fondo se mantenga fijo cuando se desplaza */
 background-position: center; /* Centra la imagen de fondo */
 overflow-x: hidden; /* Oculta el desbordamiento horizontal */
       
@@ -37,58 +39,173 @@ max-width: 100%; /* Ajusta el ancho máximo del cuerpo movil*/
 
 }
     
+/* Estilos para el menú */
 .menu {
-display: flex; 
-justify-content: space-between; 
-background: linear-gradient(to right, black, black); /* Color fondo Menu */ 
-overflow: hidden; 
-position: fixed; 
-width: 100%; /* Asegura que el menú ocupe el ancho completo */
-top: 0; /* Fija el menú en la parte superior */
-z-index: 1000; /* Asegura que el menú esté en la parte superior */
+display: flex; /* Utiliza flexbox para el layout */
+justify-content: space-between; /* Espacia los elementos del menú uniformemente */
+background-color: rgba(50, 0, 150, 0) !important; /* Fondo transparente inicialmente */
+transition: background 0.3s ease; /* Transición suave */
+overflow: hidden; /* Oculta el contenido desbordado */
+position: fixed; /* Permite posicionar elementos dentro del menú */
+width: 100%; /* El menú ocupa todo el ancho disponible */
+top: 0; /* Coloca el menú en la parte superior */
+z-index: 1000; /* Asegura que el menú esté en la parte superior del stacking context */
 }
+
+
+.menu.scrolled {
+background-color: #37009698 !important; /* Fondo oscuro cuando se desplaza */
+}
+
+.menu.open {
+background-color: #37009698 !important; /* Fondo oscuro cuando el menú está abierto */
+}
+
+
+
 
 /* Ajusta el espacio entre el menú y el contenido */
 .content {
 padding-top: 80px; /* Ajusta según el alto del menú */
 }
 
-    
-.menu a {
-float: left; /* Alinea los elementos del menú a la izquierda */
-display: block; /* Hace que los elementos del menú sean bloques para ocupar todo el ancho disponible */
-color: white; /* Color del texto del menú */
-text-align: center; /* Alinea el texto del menú al centro */
-padding: 25px 50px; /* Espacio alrededor del texto del menú y centra y mueve el texto */
-text-decoration: none; /* Elimina la decoración de subrayado del texto del menú */
-font-size: 20px; /* Tamaño de la fuente del menú */
+
+
+/* Estilos para los enlaces del menú */
+.menu-links {
+display: flex; /* Usa flexbox para alinear los enlaces */
+align-items: center; /* Alinea verticalmente los enlaces al centro */
+margin-right: 10px; /* Espacio a la derecha */
 }
-    
+
+.menu-links a {
+color: white; /* Color del texto */
+text-decoration: none; /* Sin subrayado */
+padding: 5px 15px; /* Espaciado interno alrededor del texto */
+font-size: 20px; /* Tamaño de la fuente */
+font-weight: bold; /* Grosor del texto */
+}
+
 .menu a:hover {
-background-color: none; /* Color de fondo cuando se pasa el cursor sobre los elementos del menú */
-color: #dddddd96; /* Cambia el color del texto cuando se pasa el cursor sobre los elementos del menú */
-}
-    
-.menu .icon {
-display: none; /* Oculta el ícono del menú por defecto */
-
+background-color: none; /* Sin cambio de fondo al pasar el cursor */
+color: #dddddd96; /* Cambia el color del texto al pasar el cursor */
 }
 
-.menu .icon img {
-padding-top: 20px; /* Espacio superior alrededor del icono de hamburguesa */
+/* Estilos para el botón de WhatsApp */
+.whatsapp {
+margin-left: 20px; /* Espacio a la izquierda */
+}
+
+.whatsapp a {
+display: inline-block; /* Elemento en línea con comportamiento de bloque */
+padding: 10px 24px; /* Espaciado interno */
+font-size: 16px; /* Tamaño de la fuente */
+background-color: #85f504c2; /* Color de fondo */
+color: #fff; /* Color del texto */
+text-decoration: none; /* Sin subrayado */
+border-radius: 8px; /* Bordes redondeados */
+transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.whatsapp a span {
+font-weight: bold; /* Grosor del texto dentro del botón */
+}
+
+.whatsapp a:hover {
+background-color: rgba(8, 248, 100, 0.322); /* Cambio de fondo al pasar el cursor */
+}
+
+/* Estilos para el icono de hamburguesa */
+.icon {
+display: none; /* Oculta el icono del menú hamburguesa por defecto */
+}
+
+.hamburger-icon {
+width: 30px; /* Ancho del icono */
+height: 30px; /* Alto del icono */
 }
 
 /* Logo principal */
 .logo {
-position: fixed; /* Permite superponer el logo */
-max-width: 100%; /* Establece el ancho máximo del logo para que se ajuste al contenedor */
-width: 200px !important; /* Ancho específico del logo */
-height: auto !important; /* Ajusta la altura automáticamente para mantener la proporción */
-top: -50px; /* Ajusta la distancia desde la parte superior */
-left: 50%; /* Ajusta la distancia desde la izquierda */
-transform: translateX(-50%); /* Centra el logo horizontalmente */
-z-index: 1002; /* Asegura que el logo esté por encima de los otros elementos */
+margin-left: 20px; /* Espacio a la izquierda */
+max-width: 200px; /* Ancho máximo del logo */
+cursor: pointer; /* Cambia el cursor al pasar sobre el logo */
+z-index: 1002; /* Asegura que el logo esté sobre otros elementos */
 }
+
+.logo img {
+max-width: 100%; /* Escala el logo proporcionalmente */
+}
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .menu-links {
+  display: none; /* Oculta los enlaces del menú en dispositivos móviles */
+  }
+
+  .icon {
+  display: block; /* Muestra el icono del menú hamburguesa en móviles */
+  position: absolute; /* Posiciona el icono de manera absoluta */
+  right: 0; /* Alinea el icono a la derecha */
+  top: 20%; /* Alinea el icono en la parte superior */
+  padding: 10px 19px; /* Espaciado interno */
+  background-color: rgba(121, 10, 136, 0); /* Fondo con transparencia */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
+  font-size: 17px; /* Tamaño del texto del icono */
+  border-radius: 0px; /* Sin bordes redondeados */
+  z-index: 1002; /* Asegura que el icono esté sobre otros elementos */
+  }
+
+  .menu.responsive .menu-links {
+  display: flex; /* Muestra los enlaces del menú en modo responsive */
+  flex-direction: column; /* Coloca los enlaces en una columna */
+  position: fixed; /* Posiciona los enlaces de manera fija */
+  top: 90px; /* Alinea los enlaces en la parte superior */
+  right: 0; /* Alinea los enlaces a la derecha */
+  background-color: #370096cb; /* Fondo */
+  width: 50%; /* Ajusta el ancho del menú flotante */
+  max-width: 300px; /* Ancho máximo del menú flotante */
+  z-index: 1001; /* Asegura que los enlaces estén sobre otros elementos */
+  border-radius: 12px; /* Sin bordes redondeados */
+  margin-right: 7px; /* Sin margen a la derecha */
+  padding-bottom: 20px; /* Añade margen interno en la parte inferior del menú */
+  height: auto; /* Permite ajustar la altura del menú automáticamente */
+  min-height: 200px; /* Establece una altura mínima para el menú */
+  margin-top: 4%;
+  }
+
+  .menu.responsive .menu-links a {
+  float: none; /* Sin flotación */
+  display: block; /* Muestra los enlaces como bloques */
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 15px 30px; /* Espaciado interno */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Sin subrayado */
+  }
+
+  .menu.responsive .menu-links a:hover {
+  background-color: #dddddd96; /* Cambio de fondo al pasar el cursor */
+  color: black; /* Color del texto al pasar el cursor */
+  }
+
+  .menu .icon img {
+  width: 30px; /* Ajusta el tamaño del icono */
+}
+
+.menu.responsive .submenu {
+  margin-left: 50px; /* Ajusta el margen izquierdo del menú flotante */
+}
+
+.menu {
+
+ background-color: #370096cb !important;
+
+}
+
+}
+
+
 
 
 /* Contenedor de texto */
@@ -116,97 +233,7 @@ margin: 0 10px;
 }
 
 
-/* Para boton de busqueda pagina */
 
-.mini-submenu #searchInput {
-padding: 10px 20px; /* Espaciado interno del cuadro de búsqueda */
-border: 1px solid #ccc; /* Borde del cuadro de búsqueda */
-border-radius: 5px; /* Bordes redondeados */
-margin-right: 0px; /* Margen a la derecha del cuadro de búsqueda */
-}
-
-.mini-submenu .search-button {
-background: linear-gradient(to right,rgb(14, 0, 0), rgb(10, 0, 0)); /* Color de fondo inicial del botón */
-color: white; /* Color del texto del botón */
-border: none; /* Sin borde */
-padding: 10px 20px; /* Espaciado interno del botón */
-font-size: 15px; /* Tamaño del texto del botón */
-cursor: pointer; /* Cursor de puntero al pasar sobre el botón */
-border-radius: 5px; /* Bordes redondeados */
-display: inline-flex; /* Utiliza flexbox para alinear el contenido */
-align-items: center; /* Alinea verticalmente el contenido */
-margin-right: 0px; /* Margen a la derecha del botón */
-transition: background-color 0.3s ease; /* Transición suave del color de fondo */
-}
-
-.mini-submenu .search-button i {
-margin-right: 8px; /* Espaciado a la derecha del icono */
-}
-
-.mini-submenu .search-button:hover {
-background-color: darkpurple; /* Color de fondo al pasar el cursor */
-}
-
-
-/* Edita el submenu flotanje superior derecho*/
-.submenu {
-display: none; /* Oculta el submenú por defecto */
-text-align: right; /* Alinea el texto del submenú a la derecha */
-}
-
-.submenu a {
-display: block; /* Muestra los elementos del submenú como bloques */
-text-align: center; /* Alinea el texto del submenú al centro */
-}
-
-.menu.responsive .submenu {
-display: block; /* Asegúrate de que el submenú se muestre */
-position: fixed; /* Hacer que el submenú sea flotante */
-top: 90px; /* Ajusta según sea necesario para colocarlo debajo del ícono del menú */
-right: 0; /* Alinearlo a la derecha */
-background-color: white; /* Color de fondo del submenú */
-width: 200px; /* Ancho del submenú */
-z-index: 1001; /* Para asegurar que se superpone al contenido */
-border-radius: 12px; /* Añade bordes redondeados */
-margin-right: 10px; /*Espacio entre el borde derecho y el menu flotante*/
-}
-
-.menu.responsive .submenu a {
-float: none; /* Cancela la propiedad float */
-display: block; /* Muestra los elementos del submenú como bloques */
-text-align: left; /* Alinea el texto del submenú a la izquierda */
-padding: 15px 30px; /* Espacio alrededor del texto del submenú */
-color: black; /* Color del texto del submenú */
-text-decoration: none; /* Elimina la decoración de subrayado del texto del submenú */
-}
-
-.menu.responsive .submenu a:hover {
-background-color: #dddddd96; /* Color de fondo cuando se pasa el cursor sobre los elementos del submenú */
-color: black; /* Cambia el color del texto cuando se pasa el cursor sobre los elementos del submenú */
-}
-
-.menu.responsive .submenu a i {
-margin-right: 5px; /* Espacio entre el icono y el texto */
-}
-
-.menu .icon {
-display: block;
-position: absolute;
-right: 0;
-top: 0;
-padding: 14px 16px;
-background-color: rgba(121, 10, 136, 0); /* Color del menú con transparencia */
-border: none;
-cursor: pointer;
-font-size: 17px; /* Estilos para el ícono del menú */
-border-radius: 0px; /* Ajusta el valor para redondear más o menos las esquinas */
-z-index: 1002; /* Asegura que el icono del menú esté por encima del menú flotante */
-}
-
-img {
-max-width: 100%;
-height: auto; /* Esto garantiza que las imágenes conserven su proporción de aspecto */
-}
 
 
 /* CSS para slider */
@@ -215,21 +242,25 @@ height: auto; /* Esto garantiza que las imágenes conserven su proporción de as
 .slider {
 position: relative; /* Establece la posición relativa para posicionar elementos hijos absolutamente */
 width: 100%; /* Ancho del slider al 100% del contenedor */
-height: 300%; /* Altura del slider al 300% del tamaño de la ventana */
+height: 100vh; /* Altura del slider al 100% del tamaño de la ventana */
 overflow: hidden; /* Oculta cualquier contenido desbordante */
+z-index: 1; /* Asegúrate de que el slider esté en un nivel bajo */
+margin-bottom: -6%; /* Reduce el tamaño del margen inferior del slider */
 }
 
 /* Estilos para cada diapositiva del slider */
 .slide {
 display: none; /* Oculta todas las diapositivas inicialmente */
 position: relative; /* Posiciona las diapositivas relativamente dentro del slider */
+width: 100%; /* Asegura que cada diapositiva ocupe el 100% del ancho del slider */
+height: 100%; /* Asegura que cada diapositiva ocupe el 100% de la altura del slider */
 }
 
 /* Estilos para las imágenes dentro de las diapositivas */
 .slide img {
 display: block; /* Muestra la imagen como bloque para ocupar todo el ancho */
 width: 100%; /* Ancho al 100% del contenedor */
-height: auto; /* Altura automática para mantener la proporción */
+height: 100%; /* Altura al 100% del contenedor */
 object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsión */
 }
 
@@ -242,18 +273,26 @@ width: 100%; /* Ancho al 100% del contenedor */
 text-align: center; /* Centra el texto horizontalmente */
 color: white; /* Color del texto */
 padding: 10px; /* Espaciado interno */
-background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
 font-size: 50px; /* Tamaño de fuente */
+height: 40%;
 }
 
 .slide-text span {
 font-weight: bold; /* Aplica negrita a las partes específicas del texto */
 }
 
+.slide video {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+
 /* Estilos para los botones de navegación previo y siguiente */
 .prev, .next {
 position: absolute; /* Posiciona los botones absolutamente dentro del slider */
-top: 70%; /* Posición verticalmente centrada */
+top: 50%; /* Posición verticalmente centrada */
 transform: translateY(-50%); /* Centra verticalmente los botones */
 width: 30px; /* Ancho de los botones */
 height: 30px; /* Altura de los botones */
@@ -281,17 +320,18 @@ right: 10px; /* Posición a la derecha */
 background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro */
 }
 
+
 /* Estilos para el botón */
 .button {
 display: inline-block; /* Bloque en línea */
 padding: 10px 24px; /* Tamaño del botón */
 font-size: 16px; /* Tamaño de fuente */
-background-color: #00ff95; /* Color de fondo */
+background-color: #85f504c2; /* Color de fondo */
 color: #fff; /* Color del texto */
 text-decoration: none; /* Sin subrayado */
 border-radius: 8px; /* Bordes redondeados */
 transition: background-color 0.3s; /* Efecto de transición */
-margin-top: 20px; /* Espacio superior */
+margin-top: 10px; /* Espacio superior */
 }
 
 /* Estilos para el texto del botón */
@@ -304,12 +344,14 @@ font-weight: bold; /* Texto en negrita */
 background-color: rgba(8, 248, 100, 0.322); /* Fondo semi-transparente */
 }
 
+
 /* Estilos para los puntos de navegación */
 .dots-container {
-  text-align: center; /* Centra horizontalmente */
-  position: absolute; /* Posiciona absolutamente dentro del slider */
+text-align: center; /* Centra horizontalmente */
+position: absolute; /* Posiciona absolutamente dentro del slider */
 bottom: 10px; /* Distancia desde la parte inferior */
-  width: 100%; /* Ancho al 100% */
+width: 100%; /* Ancho al 100% */
+z-index: 2; /* Asegura que los puntos estén por encima de otros elementos */
 }
 
 /* Estilos para los puntos de navegación */
@@ -322,32 +364,40 @@ background-color: white; /* Color de fondo */
 border-radius: 50%; /* Bordes redondeados */
 cursor: pointer; /* Cursor */
 transition: background-color 0.3s; /* Efecto de transición */
-margin-bottom: -10px;
 }
 
-/* Cambio de color al pasar sobre los puntos */
+
 .dot.active, .dot:hover {
-background-color: red; /* Color al pasar sobre el punto activo */
+background-color: orangered; /* Color al pasar sobre el punto activo */
 }
 
+/* Ajustes adicionales para asegurar la responsividad */
+@media (max-width: 768px) {
 
-/* Estilos para los dispositivos móviles */
-@media screen and (max-width: 768px) {
-    .slider {
-        max-height: 500px; /* Altura máxima del banner en dispositivos móviles */
+  .slider {
+        max-height: 400px; /* Altura máxima del banner en dispositivos móviles */
     }
 
     .slide-text {
-        bottom: 10px; /* Ajustar la posición vertical del texto */
-        font-size: 14px; /* Tamaño del texto más pequeño en dispositivos móviles */
+     bottom: 10px; /* Ajustar la posición vertical del texto */
+    font-size: 16px; /* Tamaño del texto más pequeño en dispositivos móviles */
+    height: 35%; /*altura del texto movil*/
     }
 
-    .slider-dots {
-        bottom: 1px; /* Ajustar la posición vertical de los dots */
+    .prev, .next {
+        width: 5vw; /* Ancho relativo al ancho de la ventana */
+        height: 5vw; /* Altura relativo al ancho de la ventana */
+        font-size: 4vw; /* Tamaño de fuente relativo al ancho de la ventana */
+        line-height: 5vw; /* Altura de línea para centrar verticalmente */
     }
 
-
+    .dot {
+        width: 3vw; /* Ancho relativo al ancho de la ventana */
+        height: 3vw; /* Altura relativo al ancho de la ventana */
+        margin: 0 1vw; /* Espaciado relativo al ancho de la ventana */
+    }
 }
+
 
 
 /* Títulos y subtítulos */
@@ -357,7 +407,7 @@ margin-top: 20px; /* Agrega un margen superior de 20px al contenedor */
 
 h1 {
 font-size: 2em; /* Tamaño del título */
-color: black; /* Color del texto */
+color: #360096; /* Color del texto */
 background-image: url('logo2.png');
 background-size: cover; /* Asegura que la imagen de fondo cubra todo el área del título */
 background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -366,11 +416,22 @@ border-radius: 0px; /* Borde redondeado */
 display: inline-block; /* Mostrar como bloque en línea */
 padding: 15px 10px; /* Aumenta el relleno interno del título para mayor altura */
 margin: 10px auto; /* Margen superior e inferior de 20px, y centrar horizontalmente */
-margin-top: -90px; /* Margen superior PC*/
+margin-top: 0%; /* Margen superior en PC */
 box-shadow: 0px 4px 6px white; /* Añade una sombra para un mejor contraste */
-min-height: 110px; /* Establece una altura mínima para asegurar que la imagen de fondo tenga suficiente altura */
+min-height: 10px; /* Establece una altura mínima para asegurar que la imagen de fondo tenga suficiente altura */
 max-width: 100%; /* Limita el ancho máximo al 90% del contenedor */
 text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del título */
+position: relative; /* Asegura que la posición sea relativa para alinear la línea correctamente */
+}
+
+h1::after {
+content: ''; /* Añade contenido vacío para crear el elemento pseudo ::after */
+position: absolute; /* Posiciona de forma absoluta con respecto al título */
+left: 15%; /* Alinea la línea desde el borde izquierdo */
+bottom: 5px; /* Distancia desde abajo donde comenzará la línea */
+width: 70%; /* Anchura de la línea (ajusta según necesites) */
+height: 2px; /* Grosor de la línea */
+background-color: #85f504c2; /* Color de la línea (en este caso verde) */
 }
 
 @media (min-width: 769px) {
@@ -381,14 +442,15 @@ text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del t
 
 @media (max-width: 768px) {
     h1 {
-        font-size: 1.5em; /* Reduce el tamaño del título en dispositivos móviles */
+        font-size: 2em; /* Reduce el tamaño del título en dispositivos móviles */
         padding: 20px 20px; /* Reduce el relleno en dispositivos móviles */
         margin-left: auto; /* Asegura que no haya margen izquierdo en dispositivos móviles */
         margin-right: auto; /* Centra horizontalmente en dispositivos móviles */
         max-width: 100%; /* Asegura que el título ocupe todo el ancho disponible en dispositivos móviles */
-        margin-top: -50px; /* Margen superior movil*/
+        margin-top: -205px; /* Margen superior en móviles */
     }
 }
+
     
 /* Estilos para el contenedor del swiper */
 #business-indicators .swiper-container {
@@ -403,8 +465,8 @@ bottom: 20px; /* Ajusta la posición vertical del swiper */
 #business-indicators h2 {
 text-align: center; /* Centra el texto del título horizontalmente */
 font-size: 48px; /* Tamaño de la fuente del título */
-margin-top: 30px; /* Margen superior para separar el título del contenido */
-color: black; /* Color del texto del título */
+margin-top: 5%; /* Margen superior para separar el título del contenido */
+color: #320096;
 }
 
 .service-item {
@@ -417,11 +479,12 @@ background: #fff; /* Establece el fondo del elemento en blanco */
 border: 1px solid #ddd; /* Añade un borde gris claro alrededor del elemento */
 border-radius: 10px; /* Redondea las esquinas del borde */
 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Añade una sombra alrededor del elemento para darle profundidad */
+margin-bottom: 4%;
 }
 
 .service-item i {
 font-size: 40px; /* Establece el tamaño de fuente de los iconos en 40px */
-color: black; /* Establece el color de los iconos en un tono púrpura */
+color: #320096; /* Establece el color de los iconos en un tono púrpura */
 margin-bottom: 15px; /* Añade un margen inferior de 15px para separar el icono del siguiente elemento */
 }
 
@@ -436,13 +499,14 @@ color: #666; /* Establece el color del texto de los párrafos en un gris oscuro 
 }
 
 .swiper-pagination-bullet {
-background: black; /* Establece el color de fondo de las balas de paginación en púrpura */
+background: #320096; /* Establece el color de fondo de las balas de paginación en púrpura */
 }
 
 
 /* Centra el título del slider */
 #services h2 {
 text-align: center; /* Centra el texto del título horizontalmente */
+color: #320096;
 }
 
 
@@ -463,7 +527,7 @@ text-align: center; /* Centra los dots horizontalmente */
 
 /* Estilos para los dots individuales */
 .swiper-pagination-bullet {
-background: black; /* Establece el color de fondo de las balas de paginación en púrpura */
+background: #320096; /* Establece el color de fondo de las balas de paginación  */
 width: 10px; /* Ancho de los dots */
 height: 10px; /* Altura de los dots */
 margin: 0 5px; /* Margen entre los dots */
@@ -516,10 +580,10 @@ margin-bottom: 10px; /* Espacio inferior de la imagen */
 /* Estilos para la superposición de texto sobre la imagen */
 .text-overlay {
 position: absolute; /* Posiciona el texto de manera absoluta dentro del contenedor de la imagen */
-bottom: 5%; /* Alinea el texto a un 5% del borde inferior del contenedor */
-left: 5%; /* Alinea el texto a un 5% del borde izquierdo del contenedor */
-width: 85%; /* Ajusta el ancho del texto al 90% del contenedor */
-background-color: rgba(190, 2, 2, 0.356); /* Fondo semi-transparente */
+bottom: -5%; /* Alinea el texto a un 5% del borde inferior del contenedor */
+left: 6%; /* Alinea el texto a un 5% del borde izquierdo del contenedor */
+width: 84.6%; /* Ajusta el ancho del texto  del contenedor */
+background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
 padding: 10px; /* Espaciado interno del texto */
 color: white; /* Color del texto */
 font-size: 1.2em; /* Tamaño del texto */
@@ -531,7 +595,7 @@ z-index: 1; /* Asegura que el texto esté por encima de la imagen */
 .column > .titulo {
 font-weight: bold; /* Aplica negrita al título */
 font-size: 24px; /* Tamaño del texto del título */
-color: black; /* Color del texto del título */
+color: #320096; /* Color del texto del título */
 margin-bottom: 20px; /* Espacio inferior del título */
 text-align: center; /* Centra el texto horizontalmente */
 }
@@ -543,6 +607,31 @@ color: black; /* Color del texto */
 text-align: justify; /* Justifica el texto */
 margin-top: 50px; /* Margen superior del párrafo */
 margin-bottom: 20px; /* Espaciado inferior del párrafo */
+}
+
+.cta-button {
+margin-top: 20px;
+background-color: #320096;
+color: white;
+border: none;
+border-radius: 4px;
+padding: 10px 20px;
+font-size: 16px;
+cursor: pointer;
+transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+background-color: #320096ab;
+}
+
+.cta-button a {
+color: white;
+text-decoration: none;
+}
+
+.cta-button i {
+margin-right: 5px;
 }
 
 /* Ajustes para pantallas grandes */
@@ -564,7 +653,78 @@ margin-bottom: 20px; /* Espaciado inferior del párrafo */
         margin-right: 20px; /* Añade un margen a la derecha del texto */
         margin-left: 20px; /* Añade un margen a la izquierda del texto */
     }
+ 
+
+    
 }
+
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 767px) {
+    .two-column-container {
+        flex-direction: column; /* Flex direction column para vista en móvil */
+    }
+
+    .column {
+        width: 100%; /* Cada columna ocupa el 100% del ancho disponible */
+    }
+
+    .column img {
+        max-width: 100%; /* Ancho máximo de la imagen al 100% del contenedor */
+        margin: 0 auto; /* Centra las imágenes horizontalmente */
+    }
+
+    .column > p {
+        margin-right: 10px; /* Añade un margen a la derecha del texto */
+        margin-left: 10px; /* Añade un margen a la izquierda del texto */
+    }
+
+    /* Ajuste del contenedor de la imagen para pantallas pequeñas */
+    .image-container::after {
+        width: 100%; /* Asegura que la capa cubra toda la imagen */
+        height: 50%; /* Asegura que la capa cubra solo la parte de la imagen */
+        bottom: 0; /* Alinea la capa con la parte inferior del contenedor */
+    }
+
+    .image-container:hover::after {
+        transform: scale(1); /* No escala la capa en dispositivos móviles */
+    }
+
+    /* Estilos para la superposición de texto sobre la imagen */
+   .text-overlay {
+   position: absolute; /* Posiciona el texto de manera absoluta dentro del contenedor de la imagen */
+   bottom: -5%; /* Alinea el texto a un 5% del borde inferior del contenedor */
+   left: 0%; /* Alinea el texto a un 5% del borde izquierdo del contenedor */
+   width: 100%; /* Ajusta el ancho del texto  del contenedor */
+   background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+   padding: 10px; /* Espaciado interno del texto */
+   color: white; /* Color del texto */
+   font-size: 1.2em; /* Tamaño del texto */
+   text-align: center; /* Centra el texto */
+   z-index: 1; /* Asegura que el texto esté por encima de la imagen */
+   }
+
+
+   /* Cambiar el color de fondo semitransparente del contenedor de la imagen al pasar el cursor */
+   .image-container::after {
+   content: ""; /* Añade contenido al pseudoelemento */
+   position: absolute; /* Posiciona el pseudoelemento de forma absoluta dentro del contenedor */
+   top: 0;
+   left: 0%;
+   width: 150%;
+   height: 105%;
+   background-color: #3200963b; /* Color verde semitransparente */
+   opacity: 0; /* Inicialmente oculta la capa */
+   transition: opacity 0.3s ease; /* Agrega una transición suave a la opacidad */
+   pointer-events: none; /* Hace que el pseudoelemento no sea clickeable ni bloquee los clics en elementos debajo de él */
+   }
+
+   .image-container:hover::after {
+   opacity: 1; /* Hace visible la capa cuando se pasa el cursor sobre el contenedor */
+   }
+    
+}
+
 
 
 
@@ -605,7 +765,7 @@ display: flex; /* Establece el contenedor como un flexbox */
 justify-content: space-between; /* Distribuye el espacio entre los elementos del contenedor */
 align-items: flex-start; /* Alinea los elementos al inicio del eje transversal */
 flex-wrap: wrap; /* Permite que los elementos se ajusten al ancho del contenedor */
-background: linear-gradient(to right, black, black); /* Establece un fondo degradado */
+background: linear-gradient(to right, #320096, #320096); /* Establece un fondo degradado */
 color: #fff; /* Color de texto blanco */
 margin-top: 50px;
 }
@@ -700,26 +860,40 @@ margin-bottom: 10px; /* Añadimos espacio debajo del título */
 word-break: break-word; /* Permitimos que las palabras se dividan si son demasiado largas */
 }
 
+/* Estilos para el texto de términos y condiciones */
+#footer2 {
+background-color: #320096;
+color: #fff;
+padding: 20px;
+}
+
 
 
   </style>
 </head>
 <body>
-  <!-- Menú de navegación -->
-<div class="menu" id="myMenu" style="width: 100%; height: 80px;">
-  <a href="home.html">Inicio</a>
-  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
-    <img src="menu.png" alt="menu" width="20"> <!--Tamaño menu hamburgesa-->
-  </a>
-  <div class="submenu">
+<!-- Menú de navegación -->
+<div class="menu" id="myMenu">
+  <div class="logo">
+    <a href="home.html">
+      <img src="logo.png" alt="Logo">
+    </a>
+  </div>
+  <div class="menu-links">
+    <a href="/home/"></i>Inicio</a>
     <a href="servicios.html"><i class="fas fa-cogs"></i> Servicios</a>
     <a href="nosotros.html"><i class="fas fa-building"></i> Nuestra Empresa</a>
     <a href="contact.html"><i class="fas fa-mobile device"></i> Contactenos</a>
+    <div class="whatsapp">
+      <a href="https://api.whatsapp.com/send?phone=1234567890"><span>WhatsApp</span></a>
+    </div>
   </div>
-    <!--logo-->
-    <a href="home.html">
-   <img src="logo.gif" alt="Logo de tu página" class="logo" style="width: 12%; height: 16%;"></a>
-  </div>
+  <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+    <img src="menu.png" alt="Menu" class="hamburger-icon">
+  </a>
+</div>
+
+
     <!-- Slider -->
 <div class="slider">
   <div class="slide">
@@ -758,12 +932,6 @@ word-break: break-word; /* Permitimos que las palabras se dividan si son demasia
 <div class="contenedor-texto">
   <h1>Nuestro Portafolio Completo  de Servicios</h1>
 </div>
-<!-- Submenú -->
-<ul class="mini-submenu" style="text-align: right;">
-  <input type="text" id="searchInput" placeholder="Buscar...">
-  <button class="search-button" onclick="searchFunction()"><i class="fas fa-search"></i> Buscar</button>
-</li>
-</ul>
 
 
 <!-- Contenedor -->
@@ -875,7 +1043,7 @@ word-break: break-word; /* Permitimos que las palabras se dividan si son demasia
     <div class="footer-column">
         <h4>Redes Sociales</h4>
         <ul class="redes-sociales">
-          <li><a href="https://www.facebook.com/profile.php?id=100090305740067" target="_blank"><img src="facebook.png" alt="Facebook"></a></li>
+          <li><a href="https://www.facebook.com/profile.php?id=100085465921547" target="_blank"><img src="facebook.png" alt="Facebook"></a></li>
           <li><a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a></li>
 
         </ul>
@@ -924,27 +1092,76 @@ word-break: break-word; /* Permitimos que las palabras se dividan si son demasia
     </div>
 </div>
 </footer>
+</div>
+</div>
+<div class="footer-column" id="footer2">
+  <h4>Creado Por  <i class="fas fa-copyright"></i> 2024 Cloud Projex. Todos los derechos reservados. Aplican términos y restricciones.</h4>
+  </ul>
+</div>  
+</footer>
 
 
+<!--Funcion para menu transparente-->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const menu = document.querySelector('.menu');
+      const hamburger = document.querySelector('.hamburger');
+      const menuContent = document.querySelector('.menu-content');
+  
+      window.addEventListener('scroll', function() {
+          if (!isMobile() && window.scrollY > 50) {
+              menu.classList.add('scrolled');
+          } else {
+              if (!menu.classList.contains('open')) {
+                  menu.classList.remove('scrolled');
+              }
+          }
+      });
+  
+      function isMobile() {
+          return window.innerWidth <= 768; // Consideramos dispositivos móviles aquellos con un ancho de pantalla menor o igual a 768px
+      }
+  
+      hamburger.addEventListener('click', function() {
+          menu.classList.toggle('open');
+          if (menu.classList.contains('open')) {
+              menu.classList.add('scrolled');
+          } else if (window.scrollY <= 50) {
+              menu.classList.remove('scrolled');
+          }
+      });
+  
+      function toggleMenu() {
+          menu.classList.toggle('visible');
+      }
+  
+      hamburger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          toggleMenu();
+      });
+  });
+  
+  
+  
+  </script>
   </script>
   <script>
-  // Función para abrir/cerrar el menú hamburguesa
-  function myFunction() {
-    var x = document.getElementById("myMenu");
-    if (x.className === "menu") {
-      x.className += " responsive";
-    } else {
-      x.className = "menu";
+    // Función para abrir/cerrar el menú hamburguesa
+    function toggleMenu() {
+      var x = document.getElementById("myMenu");
+      if (x.className === "menu") {
+        x.className += " responsive";
+      } else {
+        x.className = "menu";
+      }
     }
-  }
-</script>
-  <script> 
-   // Función para que el menu se cierra cuando doy clic en pagina
+  
+    // Función para que el menú se cierre cuando se hace clic fuera de él
     document.addEventListener('click', function(e) {
       if (!document.getElementById('myMenu').contains(e.target)) {
         var x = document.getElementById('myMenu');
         if (x.className === 'menu responsive') {
-          x.className = 'menu'; /* El evento click se añade al documento con este scrip*/
+          x.className = 'menu';
         }
       }
     });
@@ -984,6 +1201,24 @@ function currentSlide(n) {
 showSlides(slideIndex);
 }
 </script>
+
+
+<script>
+//Scrip para Pop up de Servicios
+function togglePopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+}
+
+function closePopup(event) {
+  var popup = document.getElementById("popup");
+  if (event.target === popup) {
+    popup.style.display = "none";
+  }
+}
+
+
+</script>
 <script>
 // Función para cerrar el menú al hacer clic fuera de él
 document.addEventListener('click', function(e) {
@@ -994,37 +1229,6 @@ document.addEventListener('click', function(e) {
     }
   }
 });
-
-// Función para realizar la búsqueda en la página
-function searchFunction() {
-  var input, filter, elements, txtValue;
-  input = document.getElementById("searchInput");
-  filter = input.value.trim().toUpperCase();
-
-  if (filter === "") {
-    alert("Por favor, ingrese un término de búsqueda.");
-    return false;
-  }
-
-  elements = document.body.getElementsByTagName("*");
-
-  for (var i = 0; i < elements.length; i++) {
-    txtValue = elements[i].textContent || elements[i].innerText;
-
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      // Resalta el texto cambiando el color de la letra
-      elements[i].style.color = "yellow";
-      // Elimina el resaltado después de 3 segundos
-      setTimeout(function(el) {
-        return function() {
-          el.style.color = "";
-        }
-      }(elements[i]), 3000);
-    }
-  }
-
-  return false;
-}
 </script>
 
 <script>
