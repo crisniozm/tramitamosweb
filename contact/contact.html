@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>  
+<meta charset="utf-8">
+<!-- Define el conjunto de caracteres utilizado en la página como UTF-8 -->
+<meta name="description" content="Tramitamos SAS Colombia - Todo tipo de tramites academicos,bancarios,laborales y visados. Visítanos para obtener más información.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Establece la escala inicial y el ancho de la pantalla para dispositivos móviles -->
+<title>Tramitamos SAS Colombia</title> <!-- Título de la página -->
+<!-- Enlace a la fuente de Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<!-- Enlace a la biblioteca de Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<!-- Swiper CSS -->
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<!-- Configuración de la caché del navegador -->
+<meta http-equiv="Cache-Control" content="max-age=3600, must-revalidate">
+<meta http-equiv="Pragma" content="cache">
+<meta http-equiv="Expires" content="3600">
+<!-- Favicon -->
+<link href="favicon.png" rel="icon">
+<style>
+/*Codigo CSS*/
+body { 
+font-family: 'Roboto', sans-serif; /* Estilo de fuente para el cuerpo del documento */
+margin: 0; /* Elimina el margen exterior del cuerpo */
+padding: 0; /* Elimina el espacio interior del cuerpo */
+background-image: url('none'); /* Imagen de fondo */
+background: linear-gradient(white, white, white); /* Gradiente de colores para el fondo */
+background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+background-attachment: fixed; /*con fixed Hace que el fondo se mantenga fijo cuando se desplaza */
+background-position: center; /* Centra la imagen de fondo */
+overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+      
+}
+
+html, body {
+overflow-x: hidden; /* Oculta el desplazamiento horizontal en movil */
+max-width: 100%; /* Ajusta el ancho máximo del cuerpo movil*/
+
+}
+    
+/* Estilos para el menú */
+.menu {
+display: flex; /* Utiliza flexbox para el layout */
+justify-content: space-between; /* Espacia los elementos del menú uniformemente */
+background-color: rgba(50, 0, 150, 0) !important; /* Fondo transparente inicialmente */
+transition: background 0.3s ease; /* Transición suave */
+overflow: hidden; /* Oculta el contenido desbordado */
+position: fixed; /* Permite posicionar elementos dentro del menú */
+width: 100%; /* El menú ocupa todo el ancho disponible */
+top: 0; /* Coloca el menú en la parte superior */
+z-index: 1000; /* Asegura que el menú esté en la parte superior del stacking context */
+}
+
+
+.menu.scrolled {
+background-color: #37009698 !important; /* Fondo oscuro cuando se desplaza */
+}
+
+.menu.open {
+background-color: #37009698 !important; /* Fondo oscuro cuando el menú está abierto */
+}
+
+
+
+
+/* Ajusta el espacio entre el menú y el contenido */
+.content {
+padding-top: 80px; /* Ajusta según el alto del menú */
+}
+
+
+
+/* Estilos para los enlaces del menú */
+.menu-links {
+display: flex; /* Usa flexbox para alinear los enlaces */
+align-items: center; /* Alinea verticalmente los enlaces al centro */
+margin-right: 10px; /* Espacio a la derecha */
+}
+
+.menu-links a {
+color: white; /* Color del texto */
+text-decoration: none; /* Sin subrayado */
+padding: 5px 15px; /* Espaciado interno alrededor del texto */
+font-size: 20px; /* Tamaño de la fuente */
+font-weight: bold; /* Grosor del texto */
+}
+
+.menu a:hover {
+background-color: none; /* Sin cambio de fondo al pasar el cursor */
+color: #dddddd96; /* Cambia el color del texto al pasar el cursor */
+}
+
+/* Estilos para el botón de WhatsApp */
+.whatsapp {
+margin-left: 20px; /* Espacio a la izquierda */
+}
+
+.whatsapp a {
+display: inline-block; /* Elemento en línea con comportamiento de bloque */
+padding: 10px 24px; /* Espaciado interno */
+font-size: 16px; /* Tamaño de la fuente */
+background-color: #85f504c2; /* Color de fondo */
+color: #fff; /* Color del texto */
+text-decoration: none; /* Sin subrayado */
+border-radius: 8px; /* Bordes redondeados */
+transition: background-color 0.3s; /* Transición suave para el cambio de color */
+}
+
+.whatsapp a span {
+font-weight: bold; /* Grosor del texto dentro del botón */
+}
+
+.whatsapp a:hover {
+background-color: rgba(8, 248, 100, 0.322); /* Cambio de fondo al pasar el cursor */
+}
+
+/* Estilos para el icono de hamburguesa */
+.icon {
+display: none; /* Oculta el icono del menú hamburguesa por defecto */
+}
+
+.hamburger-icon {
+width: 30px; /* Ancho del icono */
+height: 30px; /* Alto del icono */
+}
+
+/* Logo principal */
+.logo {
+margin-left: 20px; /* Espacio a la izquierda */
+max-width: 200px; /* Ancho máximo del logo */
+cursor: pointer; /* Cambia el cursor al pasar sobre el logo */
+z-index: 1002; /* Asegura que el logo esté sobre otros elementos */
+}
+
+.logo img {
+max-width: 100%; /* Escala el logo proporcionalmente */
+}
+
+/* Media query para dispositivos móviles */
+@media screen and (max-width: 768px) {
+  .menu-links {
+  display: none; /* Oculta los enlaces del menú en dispositivos móviles */
+  }
+
+  .icon {
+  display: block; /* Muestra el icono del menú hamburguesa en móviles */
+  position: absolute; /* Posiciona el icono de manera absoluta */
+  right: 0; /* Alinea el icono a la derecha */
+  top: 20%; /* Alinea el icono en la parte superior */
+  padding: 10px 19px; /* Espaciado interno */
+  background-color: rgba(121, 10, 136, 0); /* Fondo con transparencia */
+  border: none; /* Sin borde */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el icono */
+  font-size: 17px; /* Tamaño del texto del icono */
+  border-radius: 0px; /* Sin bordes redondeados */
+  z-index: 1002; /* Asegura que el icono esté sobre otros elementos */
+  }
+
+  .menu.responsive .menu-links {
+  display: flex; /* Muestra los enlaces del menú en modo responsive */
+  flex-direction: column; /* Coloca los enlaces en una columna */
+  position: fixed; /* Posiciona los enlaces de manera fija */
+  top: 90px; /* Alinea los enlaces en la parte superior */
+  right: 0; /* Alinea los enlaces a la derecha */
+  background-color: #370096cb; /* Fondo */
+  width: 50%; /* Ajusta el ancho del menú flotante */
+  max-width: 300px; /* Ancho máximo del menú flotante */
+  z-index: 1001; /* Asegura que los enlaces estén sobre otros elementos */
+  border-radius: 12px; /* Sin bordes redondeados */
+  margin-right: 7px; /* Sin margen a la derecha */
+  padding-bottom: 20px; /* Añade margen interno en la parte inferior del menú */
+  height: auto; /* Permite ajustar la altura del menú automáticamente */
+  min-height: 200px; /* Establece una altura mínima para el menú */
+  margin-top: 4%;
+  }
+
+  .menu.responsive .menu-links a {
+  float: none; /* Sin flotación */
+  display: block; /* Muestra los enlaces como bloques */
+  text-align: left; /* Alinea el texto a la izquierda */
+  padding: 15px 30px; /* Espaciado interno */
+  color: white; /* Color del texto */
+  text-decoration: none; /* Sin subrayado */
+  }
+
+  .menu.responsive .menu-links a:hover {
+  background-color: #dddddd96; /* Cambio de fondo al pasar el cursor */
+  color: black; /* Color del texto al pasar el cursor */
+  }
+
+  .menu .icon img {
+  width: 30px; /* Ajusta el tamaño del icono */
+}
+
+.menu.responsive .submenu {
+  margin-left: 50px; /* Ajusta el margen izquierdo del menú flotante */
+}
+
+.menu {
+
+ background-color: #370096cb !important;
+
+}
+
+}
+
+
+
+
+/* Contenedor de texto */
+.contenedor-texto {
+margin-top: 100px; /* Ajusta la distancia del texto al logo */
+}
+
+
+/* Para título debajo de la imagen */
+.image-title.top {
+margin-bottom: 10px;
+margin-top: 0;
+}
+
+.mini-submenu {
+list-style: none;
+padding: 0;
+text-align: center;
+margin: 20px 0;
+}
+
+.mini-submenu li {
+display: inline;
+margin: 0 10px;
+}
+
+
+
+
+
+/* CSS para slider */
+
+/* Estilos para el contenedor del slider */
+.slider {
+position: relative; /* Establece la posición relativa para posicionar elementos hijos absolutamente */
+width: 100%; /* Ancho del slider al 100% del contenedor */
+height: 100vh; /* Altura del slider al 100% del tamaño de la ventana */
+overflow: hidden; /* Oculta cualquier contenido desbordante */
+z-index: 1; /* Asegúrate de que el slider esté en un nivel bajo */
+margin-bottom: -6%; /* Reduce el tamaño del margen inferior del slider */
+}
+
+/* Estilos para cada diapositiva del slider */
+.slide {
+display: none; /* Oculta todas las diapositivas inicialmente */
+position: relative; /* Posiciona las diapositivas relativamente dentro del slider */
+width: 100%; /* Asegura que cada diapositiva ocupe el 100% del ancho del slider */
+height: 100%; /* Asegura que cada diapositiva ocupe el 100% de la altura del slider */
+}
+
+/* Estilos para las imágenes dentro de las diapositivas */
+.slide img {
+display: block; /* Muestra la imagen como bloque para ocupar todo el ancho */
+width: 100%; /* Ancho al 100% del contenedor */
+height: 100%; /* Altura al 100% del contenedor */
+object-fit: cover; /* Ajusta la imagen para cubrir el contenedor sin distorsión */
+}
+
+/* Estilos para el texto superpuesto en las diapositivas */
+.slide-text {
+position: absolute; /* Posiciona el texto absolutamente dentro del slider */
+bottom: 20px; /* Espacio desde la parte inferior */
+left: 0; /* Alinea el texto a la izquierda del contenedor */
+width: 100%; /* Ancho al 100% del contenedor */
+text-align: center; /* Centra el texto horizontalmente */
+color: white; /* Color del texto */
+padding: 10px; /* Espaciado interno */
+font-size: 50px; /* Tamaño de fuente */
+height: 40%;
+}
+
+.slide-text span {
+font-weight: bold; /* Aplica negrita a las partes específicas del texto */
+}
+
+.slide video {
+display: block;
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+
+/* Estilos para los botones de navegación previo y siguiente */
+.prev, .next {
+position: absolute; /* Posiciona los botones absolutamente dentro del slider */
+top: 50%; /* Posición verticalmente centrada */
+transform: translateY(-50%); /* Centra verticalmente los botones */
+width: 30px; /* Ancho de los botones */
+height: 30px; /* Altura de los botones */
+background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+color: white; /* Color del texto */
+font-size: 20px; /* Tamaño de fuente */
+text-align: center; /* Centra el texto horizontalmente */
+line-height: 30px; /* Altura de línea para centrar verticalmente */
+cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+transition: background-color 0.3s; /* Efecto de transición para el color de fondo */
+}
+
+/* Estilos para el botón previo */
+.prev {
+left: 10px; /* Posición a la izquierda */
+}
+
+/* Estilos para el botón siguiente */
+.next {
+right: 10px; /* Posición a la derecha */
+}
+
+/* Cambio de color al pasar sobre los botones */
+.prev:hover, .next:hover {
+background-color: rgba(0, 0, 0, 0.8); /* Fondo más oscuro */
+}
+
+
+/* Estilos para el botón */
+.button {
+display: inline-block; /* Bloque en línea */
+padding: 10px 24px; /* Tamaño del botón */
+font-size: 16px; /* Tamaño de fuente */
+background-color: #85f504c2; /* Color de fondo */
+color: #fff; /* Color del texto */
+text-decoration: none; /* Sin subrayado */
+border-radius: 8px; /* Bordes redondeados */
+transition: background-color 0.3s; /* Efecto de transición */
+margin-top: 10px; /* Espacio superior */
+}
+
+/* Estilos para el texto del botón */
+.button span {
+font-weight: bold; /* Texto en negrita */
+}
+
+/* Cambio de color al pasar sobre el botón */
+.button:hover {
+background-color: rgba(8, 248, 100, 0.322); /* Fondo semi-transparente */
+}
+
+
+/* Estilos para los puntos de navegación */
+.dots-container {
+text-align: center; /* Centra horizontalmente */
+position: absolute; /* Posiciona absolutamente dentro del slider */
+bottom: 10px; /* Distancia desde la parte inferior */
+width: 100%; /* Ancho al 100% */
+z-index: 2; /* Asegura que los puntos estén por encima de otros elementos */
+}
+
+/* Estilos para los puntos de navegación */
+.dot {
+display: inline-block; /* Muestra los puntos en línea */
+width: 11px; /* Ancho */
+height: 11px; /* Altura */
+margin: 0 5px; /* Espaciado entre los puntos */
+background-color: white; /* Color de fondo */
+border-radius: 50%; /* Bordes redondeados */
+cursor: pointer; /* Cursor */
+transition: background-color 0.3s; /* Efecto de transición */
+}
+
+
+.dot.active, .dot:hover {
+background-color: orangered; /* Color al pasar sobre el punto activo */
+}
+
+/* Ajustes adicionales para asegurar la responsividad */
+@media (max-width: 768px) {
+
+  .slider {
+        max-height: 400px; /* Altura máxima del banner en dispositivos móviles */
+    }
+
+    .slide-text {
+     bottom: 10px; /* Ajustar la posición vertical del texto */
+    font-size: 16px; /* Tamaño del texto más pequeño en dispositivos móviles */
+    height: 35%; /*altura del texto movil*/
+    }
+
+    .prev, .next {
+        width: 5vw; /* Ancho relativo al ancho de la ventana */
+        height: 5vw; /* Altura relativo al ancho de la ventana */
+        font-size: 4vw; /* Tamaño de fuente relativo al ancho de la ventana */
+        line-height: 5vw; /* Altura de línea para centrar verticalmente */
+    }
+
+    .dot {
+        width: 3vw; /* Ancho relativo al ancho de la ventana */
+        height: 3vw; /* Altura relativo al ancho de la ventana */
+        margin: 0 1vw; /* Espaciado relativo al ancho de la ventana */
+    }
+}
+
+
+
+/* Títulos y subtítulos */
+.container {
+margin-top: 20px; /* Agrega un margen superior de 20px al contenedor */
+}
+
+h1 {
+font-size: 2em; /* Tamaño del título */
+color: #360096; /* Color del texto */
+background-image: url('logo2.png');
+background-size: cover; /* Asegura que la imagen de fondo cubra todo el área del título */
+background-repeat: no-repeat; /* Evita que la imagen se repita */
+background-position: center; /* Centra la imagen de fondo */
+border-radius: 0px; /* Borde redondeado */
+display: inline-block; /* Mostrar como bloque en línea */
+padding: 15px 10px; /* Aumenta el relleno interno del título para mayor altura */
+margin: 10px auto; /* Margen superior e inferior de 20px, y centrar horizontalmente */
+margin-top: 0%; /* Margen superior en PC */
+box-shadow: 0px 4px 6px white; /* Añade una sombra para un mejor contraste */
+min-height: 10px; /* Establece una altura mínima para asegurar que la imagen de fondo tenga suficiente altura */
+max-width: 100%; /* Limita el ancho máximo al 90% del contenedor */
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Agrega una sombra al texto del título */
+position: relative; /* Asegura que la posición sea relativa para alinear la línea correctamente */
+}
+
+h1::after {
+content: ''; /* Añade contenido vacío para crear el elemento pseudo ::after */
+position: absolute; /* Posiciona de forma absoluta con respecto al título */
+left: 15%; /* Alinea la línea desde el borde izquierdo */
+bottom: 5px; /* Distancia desde abajo donde comenzará la línea */
+width: 70%; /* Anchura de la línea (ajusta según necesites) */
+height: 2px; /* Grosor de la línea */
+background-color: #85f504c2; /* Color de la línea (en este caso verde) */
+}
+
+@media (min-width: 769px) {
+    h1 {
+        margin-left: 320px; /* Margen izquierdo para centrar en PC */
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em; /* Reduce el tamaño del título en dispositivos móviles */
+        padding: 20px 20px; /* Reduce el relleno en dispositivos móviles */
+        margin-left: auto; /* Asegura que no haya margen izquierdo en dispositivos móviles */
+        margin-right: auto; /* Centra horizontalmente en dispositivos móviles */
+        max-width: 100%; /* Asegura que el título ocupe todo el ancho disponible en dispositivos móviles */
+        margin-top: -205px; /* Margen superior en móviles */
+    }
+}
+
+    
+
+/* Estilos para los contenedores de dos columnas */
+.two-column-container {
+display: flex; /* Utiliza flexbox para organizar el contenido en dos columnas */
+flex-direction: column; /* Cambia la dirección de las columnas para dispositivos móviles */
+align-items: center; /* Centra horizontalmente el contenido */
+}
+
+/* Estilos para cada columna */
+.column {
+width: 100%; /* Cada columna ocupa todo el ancho disponible */
+padding: 20px; /* Añade un espacio de relleno alrededor del contenido dentro de cada columna */
+box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+/* Estilos para los mapas de Google */
+.column iframe {
+width: 100%; /* Hace que el mapa ocupe todo el ancho disponible en su contenedor */
+height: 300px; /* Altura fija del mapa */
+margin-top: 10px; /* Añade un margen superior al mapa */
+margin-bottom: 10px; /* Añade un margen inferior al mapa */
+}
+
+
+/* Estilos para los títulos */
+.column > .titulo {
+font-weight: bold; /* Aplica negrita al título */
+color: #320096; /* Color del texto del título */
+text-align: center; /* Centra el título horizontalmente */
+}
+
+/* Estilos para los iconos de ubicación */
+.column .ubicacion-icon {
+color: #320096; /* Color del icono de ubicación */
+}
+
+
+table {
+width: 100%; /* Establece el ancho de la tabla al 100% del contenedor padre */
+border-collapse: collapse; /* Fusiona los bordes de la tabla */
+}
+    
+table th, table td {
+padding: 8px; /* Espacio alrededor del contenido de las celdas de la tabla */
+text-align: center; /* Alinea el texto dentro de las celdas de la tabla al centro */
+border-bottom: 1px solid #ddd; /* Borde inferior de las celdas de la tabla */
+}
+    
+table th {
+background-color: #000000; /* Color de fondo de las celdas de encabezado de la tabla */
+color: white; /* Color del texto de las celdas de encabezado de la tabla */
+
+}
+  
+.whatsapp-icon {
+position: fixed;
+bottom: 20px;
+right: 20px;
+width: 55px;
+height: auto;
+z-index: 999;
+}
+.whatsapp-icon img {
+width: 100%; /* Asegúrate de que el tamaño del icono sea del 100% del contenedor */
+height: auto; /* Mantén la proporción del icono */
+}
+
+
+#footer {
+display: flex; /* Establece el contenedor como un flexbox */
+justify-content: space-between; /* Distribuye el espacio entre los elementos del contenedor */
+align-items: flex-start; /* Alinea los elementos al inicio del eje transversal */
+flex-wrap: wrap; /* Permite que los elementos se ajusten al ancho del contenedor */
+background: linear-gradient(to right, #320096, #320096);  /* Establece un fondo degradado */
+color: #fff; /* Color de texto blanco */
+margin-top: 50px;
+}
+
+.footer-column {
+flex: 1; /* Hace que las columnas del footer tengan el mismo ancho */
+text-align: center; /* Alinea el texto al centro dentro de las columnas */
+}
+
+.footer-column h4 {
+font-size: 18px; /* Tamaño de fuente para los títulos */
+margin-top: 20px; /* Margen superior para separar los títulos del contenido */
+}
+
+.footer-column ul {
+list-style: none; /* Elimina los estilos de lista predeterminados */
+padding: 0; /* Elimina el relleno de las listas */
+margin-top: 50px; /* Margen superior para separar las listas del contenido superior */
+}
+
+.footer-column ul li {
+display: inline-block; /* Hace que los elementos de la lista estén en línea */
+margin-bottom: 10px; /* Espacio entre los elementos de la lista */
+margin-right: 10px; /* Espacio a la derecha de los elementos de la lista */
+}
+
+.enlaces li {
+margin-bottom: 5px; /* Espacio entre los elementos de la lista de enlaces */
+display: inline-block; /* Hace que los elementos de la lista de enlaces estén en línea */
+}
+
+.enlaces li a {
+color: #fff; /* Color del texto de los enlaces */
+}
+
+/* Ajustes para los iconos de redes sociales */
+.footer-column .redes-sociales li {
+display: inline-block; /* Hace que los elementos de la lista de redes sociales estén en línea */
+margin-right: 10px; /* Espacio a la derecha de los elementos de la lista de redes sociales */
+}
+
+.footer-column .redes-sociales a {
+  display: block; /* Hace que el área de clic sea todo el icono */
+}
+
+.footer-column .redes-sociales img {
+width: 40px; /* Tamaño deseado de las imágenes de redes sociales */
+margin-top: -20px;
+}
+
+.contact-info a {
+color: #fff; /* Cambia el color del texto de los enlaces */
+text-decoration: none; /* Elimina el subrayado de los enlaces si lo deseas */
+}
+
+.popup {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+z-index: 999;
+}
+
+.popup-contenido {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background-color: white;
+padding: 20px;
+border-radius: 10px;
+z-index: 1000;
+max-width: 90%;
+max-height: 80%; /* Limitamos la altura máxima del pop-up */
+overflow-y: auto;
+margin: 15% auto; /* Aumentamos un poco el margen */
+}
+
+
+.popup-contenido p {
+margin: 10px 0;
+color: black;
+}
+
+.titulo-popup {
+font-weight: bold;
+text-align: center; /* Centramos el título */
+margin-bottom: 10px; /* Añadimos espacio debajo del título */
+word-break: break-word; /* Permitimos que las palabras se dividan si son demasiado largas */
+}
+
+/* Estilos para el texto de términos y condiciones */
+#footer2 {
+background-color: #320096;
+color: #fff;
+padding: 20px;
+}
+
+
+
+</style>
+</head>
+<body>
+<!-- Menú de navegación -->
+<div class="menu" id="myMenu">
+  <div class="logo">
+    <a href="https://agenciadetramitescolombia.com/home/">
+      <img src="logo-tramitamos-sas-colombia.png" alt="Logo Tramitamos SAS Colombia">
+    </a>
+  </div>
+  <div class="menu-links">
+    <a href="https://agenciadetramitescolombia.com/home/"></i>Inicio</a>
+    <a href="https://agenciadetramitescolombia.com/servicios/"><i class="fas fa-cogs"></i> Servicios</a>
+    <a href="https://agenciadetramitescolombia.com/nosotros/"><i class="fas fa-building"></i> Nuestra Empresa</a>
+    <a href="https://agenciadetramitescolombia.com/contact/"><i class="fas fa-mobile device"></i> Contactenos</a>
+    <div class="whatsapp">
+      <a href="https://api.whatsapp.com/send?phone=1234567890"><span>WhatsApp</span></a>
+    </div>
+  </div>
+  <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+    <img src="menu.png" alt="Menu" class="hamburger-icon">
+  </a>
+</div>
+
+    <!-- Slider -->
+<div class="slider">
+  <div class="slide">
+    <img src="banner-intro-tramisamos-sas-colombia.png" alt="Banner introduccion inicio Tramitamos SAS Colombia" >
+     <div class="slide-text">
+      <span>!Contamos con todo tipo de documentos</span>,pregunta ya por nuestros tramites¡
+      <br>
+      <a href="https://acortar.link/ILH7lO" target="_blank" class="button"><span>¡Escríbenos al Whatsapp!</span></a>
+    </div>
+  </div>
+  <div class="slide">
+    <img src="banner-promocional-tramisamos-sas-colombia.png" alt="Banner Promocional inicio Tramitamos SAS Colombia">
+    <div class="slide-text">
+      <span>!Todo tipo de tramites inmobiliarios</span>,laborales y otros documentos al instante¡
+      <br>
+      <a href="https://acortar.link/ILH7lO" target="_blank" class="button"><span>¡Escríbenos al Whatsapp!</span></a>
+    </div>
+  </div>
+ <!-- Botones de navegación -->
+ <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+ <a class="next" onclick="plusSlides(1)">&#10095;</a>
+ 
+ <!-- Botones circulares dentro del slider -->
+ <div class="dots-container">
+   <span class="dot" onclick="currentSlide(1)"></span>
+   <span class="dot" onclick="currentSlide(2)"></span>
+ </div>
+</div>
+   <!-- Boton Whatsapp POP UP -->
+  <a href="https://acortar.link/ILH7lO" target="_blank" class="whatsapp-icon">
+    <img src="whatsapp_icon.png" alt="WhatsApp">
+  </div>
+</div>
+  </a>
+<!-- Título y contenido -->
+<div class="contenedor-texto">
+  <h1>Conéctate con Nosotros a Través de Nuestros Canales</h1>
+</div>
+
+
+<!-- Contenedor de Ubicación -->
+<div id="contact" class="contenido">
+  <div class="two-column-container">
+    <div class="column">
+      <!-- Icono de ubicación -->
+      <p class="titulo"><i class="fas fa-map-marker-alt ubicacion-icon"></i> UBICACIÓN</p>
+      <ul>
+        <li><strong>Sede Principal:</strong> Carrera 48 # 10 - 45, Medellín, Colombia</li>
+        <li><strong>Oficina:</strong> Centro Empresarial Tramitamos</li>
+        <li><strong>Teléfono Oficina Central:</strong> +57 (604) 322 XX XX</li>
+        <li><strong>Whatsapp:</strong> +57 324 484 39 51 </li>
+        <li><strong>Email:</strong> crisniozmc@gmail.com</li>
+      </ul>
+      <!-- Enlace de Facebook -->
+      <a href="""><i class=""></i></a>
+    </div>
+    <div class="column">
+      <!-- Mapa de Google -->
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7932.737625386868!2d-75.57496416140751!3d6.214996264595717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4429d308d5aa6d%3A0xc35562a03191359c!2sCentro%20Comercial%20Monterrey!5e0!3m2!1ses-419!2sco!4v1716838218963!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</div>
+  
+  
+  
+  
+    <!-- Footer -->
+    <footer id="footer">
+      <div class="footer-column">
+          <h4>Redes Sociales</h4>
+          <ul class="redes-sociales">
+            <li><a href="https://www.facebook.com/profile.php?id=100085465921547" target="_blank"><img src="facebook.png" alt="Facebook"></a></li>
+            <li><a href="https://instagram.com" target="_blank"><img src="instagram.png" alt="Instagram"></a></li>
+  
+          </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contáctanos</h4>
+        <ul class="contact-info">
+            <li><i class="fab fa-phone"></i> <a href="tel:+123456789">PBX: 604 XX24606</a></li>
+            <li><i class="far fa-envelope"></i> <a href="mailto:crisniozmc@gmail.com" target="_blank">crisniozmc@gmail.com</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps?q=Sede+Prado+Carrera+50+%23+60-69" target="_blank">Sede Prado: Carrera 50 # 60 – 69</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps?q=Sede+Poblado+Calle+14+%23+40-40+Medellín+Antioquia"target="_blank">Sede Poblado: Calle 14 # 40 - 40 Medellín Antioquia</a></li>
+        </ul>
+    </div>
+      </div>
+      <div class="footer-column">
+        <h4>Enlaces</h4>
+        <ul class="enlaces">
+          <li><a href="#" class="mostrar-politica"><i class="fas fa-shield-alt"></i> Política de privacidad</a></li>
+          <li><a href="#" class="mostrar-terminos"><i class="fas fa-file-contract"></i> Términos de uso</a></li>
+        </ul>
+    </div>  
+  
+  
+    <div class="popup" id="popup-politica">
+      <div class="popup-contenido">
+          <!-- Contenido de la política de privacidad aquí -->
+          <p class="titulo-popup">Política de privacidad:</p>
+          <p>Nuestra política de privacidad describe cómo en Agencia Trámites SAS Colombia recopilamos, 
+            utilizamos y protegemos la información personal de los usuarios de nuestro sitio web. 
+            Con esta política, garantizamos a nuestros usuarios que su información recopilada
+            se utiliza de manera confidencial. En caso de compartir esta información con terceros
+            y proveedores externos, tomamos las medidas de seguridad necesarias para protegerla adecuadamente.</p>
+      </div>
+  </div>
+  
+  <div class="popup" id="popup-terminos">
+      <div class="popup-contenido">
+          <!-- Contenido de los términos de uso aquí -->
+          <p class="titulo-popup">Términos de uso:</p>
+          <p> Los términos y condiciones de uso de Agencia de tramites SAS Colombia, 
+            establecen las reglas y condiciones bajo las cuales puedes acceder y utilizar nuestro sitio web.
+             Al hacer uso de nuestros servicios, aceptas cumplir con estos términos, 
+             que definen tus derechos y responsabilidades como usuario.
+              Además, estos términos incluyen información sobre nuestras limitaciones de responsabilidad y 
+              otros aspectos relevantes relacionados con el uso de nuestro sitio web y servicios.</p>
+      </div>
+  </div>
+</footer>
+</div>
+</div>
+<div class="footer-column" id="footer2">
+  <h4>Creado Por  <i class="fas fa-copyright"></i> 2024 Cloud Projex. Todos los derechos reservados. Aplican términos y restricciones.</h4>
+  </ul>
+</div>  
+</footer>
+  
+  
+  
+<!--Funcion para menu transparente-->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const menu = document.querySelector('.menu');
+      const hamburger = document.querySelector('.hamburger');
+      const menuContent = document.querySelector('.menu-content');
+  
+      window.addEventListener('scroll', function() {
+          if (!isMobile() && window.scrollY > 50) {
+              menu.classList.add('scrolled');
+          } else {
+              if (!menu.classList.contains('open')) {
+                  menu.classList.remove('scrolled');
+              }
+          }
+      });
+  
+      function isMobile() {
+          return window.innerWidth <= 768; // Consideramos dispositivos móviles aquellos con un ancho de pantalla menor o igual a 768px
+      }
+  
+      hamburger.addEventListener('click', function() {
+          menu.classList.toggle('open');
+          if (menu.classList.contains('open')) {
+              menu.classList.add('scrolled');
+          } else if (window.scrollY <= 50) {
+              menu.classList.remove('scrolled');
+          }
+      });
+  
+      function toggleMenu() {
+          menu.classList.toggle('visible');
+      }
+  
+      hamburger.addEventListener('click', function(e) {
+          e.stopPropagation();
+          toggleMenu();
+      });
+  });
+  
+  
+  
+  </script>
+  </script>
+  <script>
+    // Función para abrir/cerrar el menú hamburguesa
+    function toggleMenu() {
+      var x = document.getElementById("myMenu");
+      if (x.className === "menu") {
+        x.className += " responsive";
+      } else {
+        x.className = "menu";
+      }
+    }
+  
+    // Función para que el menú se cierre cuando se hace clic fuera de él
+    document.addEventListener('click', function(e) {
+      if (!document.getElementById('myMenu').contains(e.target)) {
+        var x = document.getElementById('myMenu');
+        if (x.className === 'menu responsive') {
+          x.className = 'menu';
+        }
+      }
+    });
+  </script>
+<script> {
+let slideIndex = 0; 
+showSlides(slideIndex);
+
+function showSlides(n) {
+  const slides = document.getElementsByClassName('slide');
+  const dots = document.getElementsByClassName('dot');
+  
+  if (n >= slides.length) { slideIndex = 0; }
+  if (n < 0) { slideIndex = slides.length - 1; }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none'; /* Oculta todas las diapositivas */
+  }
+
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(' active', '');
+  }
+
+  slides[slideIndex].style.display = 'block'; /* Muestra la diapositiva actual */
+  dots[slideIndex].className += ' active';
+}
+
+function plusSlides(n) {
+  showSlides(slideIndex += n); /* Cambia la diapositiva al avanzar o retroceder */
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+// Inicializar la primera diapositiva
+showSlides(slideIndex);
+}
+</script>
+
+
+<script>
+//Scrip para Pop up de Servicios
+function togglePopup() {
+  var popup = document.getElementById("popup");
+  popup.style.display = popup.style.display === "flex" ? "none" : "flex";
+}
+
+function closePopup(event) {
+  var popup = document.getElementById("popup");
+  if (event.target === popup) {
+    popup.style.display = "none";
+  }
+}
+
+
+</script>
+<script>
+// Función para cerrar el menú al hacer clic fuera de él
+document.addEventListener('click', function(e) {
+  if (!document.getElementById('myMenu').contains(e.target)) {
+    var x = document.getElementById('myMenu');
+    if (x.className === 'menu responsive') {
+      x.className = 'menu';
+    }
+  }
+});
+</script>
+
+<script>
+  //Funcion para pop UP de enlaces finales
+  document.addEventListener('DOMContentLoaded', function() {
+      const mostrarPolitica = document.querySelector('.mostrar-politica');
+      const mostrarTerminos = document.querySelector('.mostrar-terminos');
+      const popupPolitica = document.getElementById('popup-politica');
+      const popupTerminos = document.getElementById('popup-terminos');
+  
+      mostrarPolitica.addEventListener('click', function(event) {
+          event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+          popupPolitica.style.display = 'block';
+      });
+  
+      mostrarTerminos.addEventListener('click', function(event) {
+          event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+          popupTerminos.style.display = 'block';
+      });
+  
+      // Cerrar el popup haciendo clic fuera de él
+      window.addEventListener('click', function(event) {
+          if (event.target == popupPolitica) {
+              popupPolitica.style.display = 'none';
+          }
+          if (event.target == popupTerminos) {
+              popupTerminos.style.display = 'none';
+          }
+      });
+  });
+  </script>
+
+  <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 3,  // Número de diapositivas que se muestran a la vez
+        spaceBetween: 30,  // Espacio entre las diapositivas
+        loop: true,        // Hace que el deslizador sea continuo
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+      });
+    });
+  </script>
+</body>
+</html>
